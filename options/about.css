@@ -1,0 +1,237 @@
+/* ============================================================
+   About: three ways to show the five figures, with icons (oa-)
+   Every class is prefixed oa-. Built on bronn.css tokens only:
+   same type ladder, colours, 8px corners and section rhythm.
+   Shared pieces reuse the page's own .wrap, .eyebrow, .h2, .lead.
+   ============================================================ */
+
+/* ---------- Shared ---------- */
+.oa-block { padding: 96px var(--pad-x); background: var(--white); }
+:where(.oa-block) dl, :where(.oa-block) dd, :where(.oa-block) figure { margin: 0; } /* zero specificity, so each layout sets its own spacing */
+.oa-head { display: flex; flex-direction: column; gap: 18px; }
+.oa-lead { margin-top: 6px; }
+.oa-prose { display: grid; gap: 16px; max-width: 620px; }
+.oa-prose p { color: var(--body); line-height: 1.55; }
+.oa-ico { display: block; width: 24px; height: 24px; flex: none; }
+.oa-photo img { width: 100%; object-fit: cover; border-radius: var(--radius); }
+.oa-photo figcaption, .oa-b__media figcaption { margin-top: 12px; font-size: var(--fs-small); color: var(--muted); }
+@media (max-width: 809.98px) { .oa-block { padding: 64px var(--pad-x); } }
+
+
+/* ============================================================
+   A. Badges row
+   Bronn's trust-badge strip, scaled up: icon, figure, label,
+   hairline columns. Desktop: one full-width row under copy and
+   photo. Tablet: the figures move beside the photograph as a
+   two-column list. Phone: lead figure, then two by two.
+   ============================================================ */
+.oa-a__grid {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 64px;
+  align-items: start;
+}
+.oa-a__copy { grid-column: 1; grid-row: 1; min-width: 0; display: flex; flex-direction: column; gap: 56px; }
+.oa-a__photo { grid-column: 2; grid-row: 1; min-width: 0; }
+.oa-a__photo img { aspect-ratio: 4 / 5; object-position: 50% 42%; }
+
+.oa-a__figs {
+  grid-column: 1 / -1; grid-row: 2; margin-top: 88px; border-top: 1px solid var(--line);
+  display: grid; grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+.oa-a__fig {
+  display: flex; flex-direction: column; gap: 10px;
+  padding: 32px 28px 4px; border-left: 1px solid var(--line);
+}
+.oa-a__fig:first-child { padding-left: 0; border-left: 0; }
+.oa-a__val { order: 1; display: flex; flex-direction: column; gap: 16px; }
+.oa-a__val .oa-ico { width: 32px; height: 32px; color: var(--accent); }
+.oa-a__num {
+  font-family: var(--serif); font-size: var(--fs-h2); line-height: 1.05;
+  letter-spacing: -.03em; color: var(--ink); white-space: nowrap;
+}
+.oa-a__label { order: 2; font-size: var(--fs-small); line-height: 1.4; color: var(--muted); }
+
+@media (max-width: 1199.98px) { /* photo in 5 columns, the figures as a two-column list in the other 7 */
+  .oa-a__grid { grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 32px; }
+  .oa-a__copy { grid-column: 1 / -1; }
+  .oa-a__photo { grid-column: 1 / 6; grid-row: 2; margin-top: 56px; }
+  .oa-a__figs {
+    grid-column: 6 / -1; grid-row: 2; margin-top: 56px; border-top: 0;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .oa-a__fig, .oa-a__fig:first-child { padding: 24px 0 24px 24px; border-left: 1px solid var(--line); border-top: 1px solid var(--line); }
+  .oa-a__fig:first-child { grid-column: 1 / -1; }
+  .oa-a__fig:first-child, .oa-a__fig:nth-child(2), .oa-a__fig:nth-child(4) { padding-left: 0; border-left: 0; }
+  .oa-a__fig:nth-child(2), .oa-a__fig:nth-child(4) { padding-right: 24px; }
+}
+@media (max-width: 809.98px) { /* one column: copy, photo, then the figures as a hairline list, one figure per row */
+  .oa-a__grid { grid-template-columns: minmax(0, 1fr); column-gap: 0; }
+  .oa-a__copy, .oa-a__photo, .oa-a__figs { grid-column: 1; }
+  .oa-a__photo { grid-row: 2; margin-top: 48px; width: 100%; max-width: 560px; }
+  /* same 560px measure as the photo, so photo and figures read as one block */
+  .oa-a__figs {
+    grid-row: 3; margin-top: 40px; max-width: 560px; border-top: 1px solid var(--line);
+    grid-template-columns: max-content minmax(0, 1fr); column-gap: 20px;
+  }
+  .oa-a__figs > .oa-a__fig {
+    grid-column: 1 / -1; display: grid; grid-template-columns: subgrid; align-items: center; gap: 0 20px;
+    padding: 16px 0; border-left: 0; border-top: 0; border-bottom: 1px solid var(--line);
+  }
+  .oa-a__figs .oa-a__val { grid-column: 1; grid-row: 1; flex-direction: row; align-items: center; gap: 14px; }
+  .oa-a__figs .oa-a__label { grid-column: 2; grid-row: 1; font-size: var(--fs-body); }
+  .oa-a__val .oa-ico { width: 26px; height: 26px; }
+  .oa-a__num { font-size: var(--fs-stat); }
+}
+
+
+/* ============================================================
+   B. On the photograph
+   Copy and photograph stay where they are on the live page.
+   The five figures run across the foot of the photograph in a
+   frosted ink strip, the hero tag's material. Where the frame
+   is too narrow for five across (below 1200px), the strip docks
+   under the photograph as a solid ink band: lead figure, then
+   two by two. The faces are never covered.
+   ============================================================ */
+.oa-b__row { display: flex; gap: 64px; align-items: flex-start; }
+.oa-b__copy { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 56px; }
+.oa-b__media { flex: 1 1 0; min-width: 0; }
+.oa-b__frame { position: relative; border-radius: var(--radius); overflow: hidden; background: var(--ink); container-type: inline-size; }
+.oa-b__frame img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 28%; }
+
+.oa-b__strip { /* five equal columns, so the dividers fall at even intervals */
+  position: absolute; left: 0; right: 0; bottom: 0;
+  display: grid; grid-template-columns: repeat(5, minmax(0, 1fr));
+  padding: 20px 12px 22px; color: var(--white);
+  background: rgba(31,20,16,.58); border-top: 1px solid rgba(255,255,255,.16);
+  -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+}
+.oa-b__fig {
+  display: flex; flex-direction: column; gap: 4px; min-width: 0;
+  padding: 0 12px; border-left: 1px solid rgba(255,255,255,.16);
+}
+.oa-b__fig:first-child { border-left: 0; }
+.oa-b__val { order: 1; display: flex; flex-direction: column; gap: 12px; }
+.oa-b__val .oa-ico { color: var(--accent); }
+.oa-b__num { /* sized from the frame: 28px at the 608px frame, so £10M+ fits its fifth */
+  font-family: var(--serif); font-size: clamp(1.25rem, 4.6cqi, 1.75rem); line-height: 1.1;
+  letter-spacing: -.03em; color: var(--white); white-space: nowrap;
+}
+.oa-b__label { order: 2; font-size: var(--fs-small); line-height: 1.35; color: rgba(255,255,255,.86); white-space: nowrap; } /* .86 holds 5:1+ over the brightest patch of the blurred photo */
+@media (min-width: 1200px) {
+  .oa-b__media { position: sticky; top: 104px; } /* as the live section: the photo stays with the copy */
+  /* never taller than the window under the 64px bar, so photo and figures are one image on a 13-inch laptop */
+  .oa-b__frame img { max-height: max(460px, calc(100svh - 136px)); }
+}
+
+@media (max-width: 1199.98px) { /* copy 7, photo 5; the strip docks under the photo */
+  .oa-b__row { gap: 48px; }
+  .oa-b__copy { flex: 7 1 0; }
+  .oa-b__media { flex: 5 1 0; }
+  .oa-b__strip {
+    position: static; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 4px 24px 8px; background: var(--ink); border-top: 0;
+    -webkit-backdrop-filter: none; backdrop-filter: none;
+  }
+  .oa-b__fig { padding: 20px 0 20px 20px; border-top: 1px solid rgba(255,255,255,.14); }
+  .oa-b__fig:first-child { grid-column: 1 / -1; border-top: 0; }
+  .oa-b__fig:first-child, .oa-b__fig:nth-child(2), .oa-b__fig:nth-child(4) { padding-left: 0; border-left: 0; }
+  .oa-b__val { flex-direction: row; align-items: center; gap: 12px; }
+  .oa-b__num { font-size: clamp(1.625rem, .9rem + 1.3vw, 2.25rem); line-height: 1.2; letter-spacing: -.04em; }
+  .oa-b__fig:first-child .oa-b__num { font-size: var(--fs-stat); }
+}
+@media (max-width: 809.98px) {
+  .oa-b__row { flex-direction: column; gap: 48px; }
+  .oa-b__media { width: 100%; max-width: 560px; flex: none; }
+  .oa-b__strip { padding: 4px 20px 8px; }
+  .oa-b__fig { padding-top: 18px; padding-bottom: 18px; }
+  .oa-b__val .oa-ico { width: 22px; height: 22px; }
+  .oa-b__num { font-size: clamp(1.625rem, 1.2rem + 1.5vw, 2rem); }
+  .oa-b__fig:first-child .oa-b__num { font-size: var(--fs-stat); }
+}
+
+
+/* ============================================================
+   C. Evidence plate
+   Copy splits title-left, story-right (Bronn's section header).
+   Beneath it the photograph and an ink ledger are joined into one
+   card: the face and the figures read as a single piece of proof.
+   Each row reads as a phrase, "£10M+ Revenue": icon chip, figure,
+   then its label in an aligned column.
+   ============================================================ */
+.oa-c__top {
+  display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 32px; row-gap: 40px;
+  align-items: start;
+}
+.oa-c__top .oa-head { grid-column: 1 / 6; }
+.oa-c__top .oa-lead { text-wrap: balance; }
+.oa-c__top .oa-prose { grid-column: 7 / -1; max-width: none; }
+
+.oa-c__plate {
+  margin-top: 80px; display: grid; grid-template-columns: 5fr 7fr;
+  border-radius: var(--radius); overflow: hidden; background: var(--ink); color: var(--white);
+}
+.oa-c__photo { position: relative; min-height: 520px; margin: 0; }
+.oa-c__photo picture { position: absolute; inset: 0; }
+.oa-c__photo img { width: 100%; height: 100%; object-fit: cover; object-position: 30% 62%; } /* both faces sit mid-frame */
+.oa-c__cap { /* top-left, on the shelving, clear of both faces */
+  position: absolute; left: 16px; top: 16px; right: 16px; width: fit-content; max-width: calc(100% - 32px);
+  padding: 4px 12px; border-radius: 999px; font-size: var(--fs-small); line-height: 1.4;
+  color: rgba(255,255,255,.92); background: rgba(31,20,16,.42);
+  border: 1px solid rgba(255,255,255,.14);
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+}
+
+.oa-c__panel { display: flex; flex-direction: column; justify-content: center; padding: 40px 56px; min-width: 0; }
+.oa-c__list { display: grid; grid-template-columns: max-content minmax(0, 1fr); column-gap: 28px; }
+.oa-c__line {
+  grid-column: 1 / -1; display: grid; grid-template-columns: subgrid; align-items: center;
+  padding: 18px 0; border-top: 1px solid rgba(255,255,255,.14);
+}
+.oa-c__line:first-child { border-top: 0; }
+.oa-c__val { grid-column: 1; grid-row: 1; display: flex; align-items: center; gap: 20px; }
+.oa-c__chip {
+  width: 44px; height: 44px; flex: none; border-radius: var(--radius);
+  background: rgba(255,255,255,.06); display: grid; place-items: center; color: var(--accent);
+}
+.oa-c__num {
+  font-family: var(--serif); font-size: var(--fs-h2); line-height: 1.05;
+  letter-spacing: -.03em; color: var(--white); white-space: nowrap;
+}
+.oa-c__label {
+  grid-column: 2; grid-row: 1; min-width: 0;
+  font-size: var(--fs-h5); line-height: 1.2; letter-spacing: -.01em; color: rgba(255,255,255,.72);
+}
+
+@media (max-width: 1199.98px) {
+  .oa-c__top { grid-template-columns: minmax(0, 1fr); column-gap: 0; }
+  .oa-c__top .oa-head, .oa-c__top .oa-prose { grid-column: 1; }
+  .oa-c__top .oa-prose { max-width: 620px; }
+  .oa-c__plate { margin-top: 64px; grid-template-columns: 1fr 1fr; }
+  .oa-c__photo { min-height: 0; }
+  .oa-c__panel { padding: 28px 36px; }
+  .oa-c__list { column-gap: 20px; }
+  .oa-c__val { gap: 16px; }
+  .oa-c__label { font-size: 1.125rem; }
+}
+@media (max-width: 809.98px) { /* still split down to 640: the photo never renders past its 500px source */
+  .oa-c__plate { margin-top: 48px; }
+  .oa-c__panel { padding: 16px 20px; }
+  .oa-c__list { column-gap: 14px; }
+  .oa-c__line { padding: 14px 0; }
+  .oa-c__val { gap: 12px; }
+  .oa-c__chip { width: 36px; height: 36px; }
+  .oa-c__chip .oa-ico { width: 20px; height: 20px; }
+  .oa-c__label { font-size: var(--fs-body); line-height: 1.3; }
+  .oa-c__cap { left: 10px; top: 10px; max-width: calc(100% - 20px); padding: 3px 10px; font-size: .75rem; }
+}
+@media (max-width: 639.98px) { /* phones: photo on top in a 4:3 crop (at most 1.2x its source), ledger below */
+  .oa-c__plate { grid-template-columns: minmax(0, 1fr); }
+  .oa-c__photo { aspect-ratio: 4 / 3; }
+  .oa-c__photo img { object-position: 40% 58%; }
+  .oa-c__panel { padding: 8px 20px 12px; }
+  .oa-c__line { padding: 16px 0; }
+  .oa-c__chip { width: 40px; height: 40px; }
+  .oa-c__chip .oa-ico { width: 22px; height: 22px; }
+  .oa-c__cap { font-size: .8125rem; }
+}
+@media (max-width: 359.98px) { .oa-c__cap { border-radius: 12px; } } /* the caption wraps to two lines at 320: a rounded tag, not a stretched pill */

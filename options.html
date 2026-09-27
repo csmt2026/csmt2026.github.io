@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unseen Advisory | Alternatives</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#1F1410">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='9' fill='%23C86A3D'/%3E%3C/svg%3E">
+<link rel="preload" href="assets/fonts/hedvig-letters-serif-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/hedvig-letters-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/bronn.css">
+<link rel="stylesheet" href="options/about.css">
+<link rel="stylesheet" href="options/areas.css">
+<link rel="stylesheet" href="options/journey.css">
+<link rel="stylesheet" href="options/help.css">
+<script src="options/areas.js" defer></script>
+<style>
+/* Gallery chrome only (prefix gx-). Every option's styling lives in options/<lane>.css. */
+html { scroll-padding-top: 80px; }
+.gx-mono { font-family: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace; font-size: 12px; line-height: 1.3; letter-spacing: .08em; text-transform: uppercase; }
+
+.gx-bar { position: fixed; inset: 0 0 auto; z-index: 60; background: var(--white); border-bottom: 1px solid var(--line); padding: 0 var(--pad-x); }
+.gx-bar__row { max-width: var(--container); margin-inline: auto; height: 64px; display: flex; align-items: center; gap: 56px; }
+.gx-bar__logo { flex: none; display: block; width: 110px; }
+.gx-bar__logo img { width: 110px; height: auto; }
+.gx-bar__links { flex: 1 1 auto; min-width: 0; display: flex; gap: 32px; overflow-x: auto; white-space: nowrap; scrollbar-width: none; }
+.gx-bar__links::-webkit-scrollbar { display: none; }
+.gx-bar__links a { flex: none; font-size: var(--fs-small); color: var(--ink); padding: 8px 0; transition: opacity .2s; }
+.gx-bar__links a:hover { opacity: .7; }
+.gx-bar__links a:focus-visible { outline-offset: -2px; }
+
+.gx-intro { padding: calc(64px + 96px) var(--pad-x) 0; }
+.gx-intro__h { margin-top: 16px; max-width: 820px; font-family: var(--serif); font-weight: 400; font-size: var(--fs-h2); line-height: 1.2; letter-spacing: -.02em; color: var(--ink); text-wrap: balance; }
+.gx-intro .lead { margin-top: 16px; max-width: 620px; }
+.gx-intro .link { margin-top: 28px; }
+
+.gx-ballot { margin-top: 56px; border-top: 1px solid var(--line); }
+.gx-ballot li { display: grid; grid-template-columns: 220px 1fr; gap: 8px 24px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+.gx-ballot__name { font-family: var(--serif); font-size: var(--fs-h5); line-height: 1.3; color: var(--ink); }
+.gx-ballot__opts { display: flex; flex-wrap: wrap; gap: 8px 28px; align-items: baseline; padding-top: 3px; }
+.gx-ballot__opts a { font-size: var(--fs-small); color: var(--body); }
+.gx-ballot__opts a:hover { color: var(--ink); }
+.gx-ballot__opts .gx-mono { color: var(--accent-text); margin-right: 4px; }
+.gx-ballot__opts em { font-style: normal; font-size: var(--fs-eyebrow); letter-spacing: .02em; text-transform: uppercase; color: var(--accent-text); margin-left: 6px; }
+
+.gx-group { margin-top: 160px; padding: 64px var(--pad-x) 0; border-top: 2px solid var(--ink); }
+.gx-group__n { display: block; color: var(--accent-text); }
+.gx-group__h { margin-top: 16px; }
+.gx-group__ask { margin-top: 16px; max-width: 640px; }
+.gx-group__count { margin-top: 24px; color: var(--muted); }
+
+.gx-opt { margin-top: 88px; }
+.gx-band { background: var(--ink); color: var(--white); padding: 26px var(--pad-x) 28px; }
+.gx-band__in { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: 12px 48px; align-items: start; }
+.gx-band__id { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+.gx-band__letter { color: var(--accent); }
+.gx-band__label { font-family: var(--serif); font-size: var(--fs-h4); line-height: 1.2; letter-spacing: -.01em; color: var(--white); text-wrap: balance; }
+.gx-chip { margin-top: 4px; font-size: var(--fs-eyebrow); letter-spacing: .02em; text-transform: uppercase; line-height: 1; padding: 7px 11px; border-radius: 999px; background: var(--accent-surface); color: var(--white); }
+.gx-band__sum { max-width: 88ch; font-size: var(--fs-small); line-height: 1.6; color: rgba(255,255,255,.82); text-wrap: pretty; }
+
+.gx-endmark { padding: 0 var(--pad-x); }
+.gx-endmark .wrap { padding-top: 18px; border-top: 1px dashed var(--line); color: var(--muted); }
+.gx-endmark .gx-mono { font-size: 11px; }
+
+.gx-end { margin-top: 160px; padding: 48px var(--pad-x) 64px; border-top: 2px solid var(--ink); }
+.gx-end p { font-size: var(--fs-small); color: var(--muted); max-width: 640px; }
+.gx-end p + p { margin-top: 12px; }
+.gx-end .link { margin-top: 20px; }
+
+@media (max-width: 1199.98px) {
+  .gx-bar__row { gap: 40px; }
+  .gx-group { margin-top: 128px; }
+}
+@media (max-width: 809.98px) {
+  html { scroll-padding-top: 68px; }
+  .gx-bar__row { height: 56px; gap: 20px; }
+  .gx-bar__links { gap: 18px; justify-content: flex-end; } /* short labels on phones, so all four fit without sliding */
+  .gx-long { display: none; }
+  .gx-intro { padding-top: calc(56px + 56px); }
+  .gx-ballot { margin-top: 40px; }
+  .gx-ballot li { grid-template-columns: 1fr; }
+  .gx-ballot__opts { flex-direction: column; gap: 6px; }
+  .gx-group { margin-top: 96px; padding-top: 48px; }
+  .gx-opt { margin-top: 64px; }
+  .gx-band { padding: 20px var(--pad-x) 22px; }
+  .gx-band__in { grid-template-columns: 1fr; }
+  .gx-band__label { font-size: var(--fs-h5); }
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="arr" viewBox="0 0 12 10"><path d="M6.6 9.861 5.667 8.889l3.011-3.195L0 5.69V4.31l8.678-.004L5.684 1.111 6.6.139 11.182 5z" fill="currentColor"/></symbol>
+</svg>
+
+<header class="gx-bar">
+  <div class="gx-bar__row">
+    <a class="gx-bar__logo" href="index.html" aria-label="Unseen Advisory, current page">
+      <img src="assets/img/unseen-wordmark.png" alt="unseen." width="588" height="96">
+    </a>
+    <nav class="gx-bar__links" aria-label="Sections">
+      <a href="#about">About<span class="gx-long"> figures</span></a>
+      <a href="#areas"><span class="gx-long">10 Core </span>Areas</a>
+      <a href="#journey"><span class="gx-long">The </span>Journey</a>
+      <a href="#help"><span class="gx-long">How I </span>Help<span class="gx-long"> picture</span></a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="gx-intro" aria-labelledby="gx-intro-h">
+  <div class="wrap">
+    <span class="eyebrow eyebrow--accent">Alternatives</span>
+    <h1 class="gx-intro__h" id="gx-intro-h">Alternatives for the four sections you flagged, 25/09/2026.</h1>
+    <p class="lead">Each option is shown live with your real copy and photographs. Tell me the letter you want for each.</p>
+    <a class="link" href="index.html">See the current page <svg aria-hidden="true"><use href="#arr"/></svg></a>
+    <ol class="gx-ballot">
+      <li><a class="gx-ballot__name" href="#about">About figures</a><span class="gx-ballot__opts"><a href="#opt-about-a"><span class="gx-mono">A</span> Badges row</a><a href="#opt-about-b"><span class="gx-mono">B</span> On the photograph <em>Recommended</em></a><a href="#opt-about-c"><span class="gx-mono">C</span> Evidence plate</a></span></li>
+      <li><a class="gx-ballot__name" href="#areas">10 Core Areas</a><span class="gx-ballot__opts"><a href="#opt-areas-a"><span class="gx-mono">A</span> Editorial index (flat at every width) <em>Recommended</em></a><a href="#opt-areas-b"><span class="gx-mono">B</span> Accordion with photograph</a><a href="#opt-areas-c"><span class="gx-mono">C</span> Card grid</a><a href="#opt-areas-d"><span class="gx-mono">D</span> Wheel</a></span></li>
+      <li><a class="gx-ballot__name" href="#journey">The Journey</a><span class="gx-ballot__opts"><a href="#opt-journey-a"><span class="gx-mono">A</span> Margin dates</a><a href="#opt-journey-b"><span class="gx-mono">B</span> Editorial long read <em>Recommended</em></a><a href="#opt-journey-c"><span class="gx-mono">C</span> Pinned title and photograph</a></span></li>
+      <li><a class="gx-ballot__name" href="#help">How I Help picture</a><span class="gx-ballot__opts"><a href="#opt-help-a"><span class="gx-mono">A</span> Booth, split card <em>Recommended</em></a><a href="#opt-help-b"><span class="gx-mono">B</span> Retail display, wide banner</a><a href="#opt-help-c"><span class="gx-mono">C</span> Counter and range, bento tile</a></span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= Group 1: About figures (lane file options/about.html, sections pasted verbatim) ================= -->
+<section class="gx-group" id="about" aria-labelledby="about-gh">
+  <div class="wrap">
+    <span class="gx-mono gx-group__n">01 / 04</span>
+    <h2 class="h2 gx-group__h" id="about-gh">About figures</h2>
+    <p class="lead gx-group__ask">You like the numbers but not the way they are presented under About. Three other ways to show the same five figures, with icons.</p>
+    <p class="gx-mono gx-group__count">3 options</p>
+  </div>
+</section>
+
+<div class="gx-opt" id="opt-about-a">
+<div class="gx-band">
+  <div class="wrap gx-band__in">
+    <div class="gx-band__id">
+      <span class="gx-mono gx-band__letter">Option A</span>
+      <p class="gx-band__label">Badges row</p>
+      
+    </div>
+    <p class="gx-band__sum">The five figures move into one row of terracotta icons and serif numbers under the copy and photo, the closest match to Bronn; on a phone they become a list, one figure per line. It is the quietest of the three, so the numbers carry the least weight.</p>
+  </div>
+</div>
+<!-- About, option A: badges row. Copy and photograph, then the five figures as one hairline row -->
+<section class="opt-block oa-block oa-a" id="about-a" data-label="Badges row" aria-labelledby="about-a-h">
+  <div class="wrap oa-a__grid">
+    <div class="oa-a__copy">
+      <div class="oa-head">
+        <span class="eyebrow eyebrow--accent">About</span>
+        <h2 class="h2" id="about-a-h">I know what it takes to grow a brand and I know what kills one.</h2>
+        <p class="lead oa-lead">12 years of lived experience across every stage of the journey.</p>
+      </div>
+      <div class="oa-prose">
+        <p>I am Manav. I co-founded LoveRaw and spent 12 years scaling it from my kitchen to one of the UK&rsquo;s fastest-growing plant-based chocolate brands.</p>
+        <p>I secured listings in <strong>Tesco, Asda, Waitrose, Boots, WHSmith, and Co-Op</strong> in the UK, and expanded internationally into <strong>Carrefour, Spar, and Amazon</strong> across 25+ countries. I grew brand awareness from 5% to 18% in a single year, generated over 36 million media impressions, led multi-million-pound fundraising rounds, and brought in over &pound;10 million in cumulative revenue.</p>
+        <p>I also lived the hard side. Product recalls. Trademark disputes. Global supply chain disruption. I have seen the full picture and that is exactly why founders trust me.</p>
+        <p>I now work with food and FMCG brands as a strategic advisor, helping founders scale faster and smarter than I did, while avoiding the mistakes I made along the way. I see the things you cannot see yourself, the hidden problems, the blind spots, the opportunities you are missing.</p>
+      </div>
+    </div>
+    <figure class="oa-photo oa-a__photo">
+      <picture>
+          <source srcset="assets/img/hero-tesco.avif" type="image/avif">
+          <source srcset="assets/img/hero-tesco.webp" type="image/webp">
+          <img src="assets/img/hero-tesco.jpg" alt="" width="500" height="667" loading="lazy" decoding="async">
+        </picture>
+      <figcaption>Manav Thapar with LoveRaw products in Tesco</figcaption>
+    </figure>
+    <dl class="oa-a__figs">
+      <div class="oa-a__fig">
+        <dt class="oa-a__label">Revenue</dt>
+        <dd class="oa-a__val"><svg class="oa-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2.5" y="8" width="16" height="11.5" rx="1.8"/><path d="M6 4.8h13.5a2 2 0 0 1 2 2v8.7"/><circle cx="10.5" cy="13.75" r="2.3"/><path d="M5.9 13.75h.01M15.1 13.75h.01"/></svg><span class="oa-a__num">&pound;10M+</span></dd>
+      </div>
+      <div class="oa-a__fig">
+        <dt class="oa-a__label">Stores</dt>
+        <dd class="oa-a__val"><svg class="oa-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 9.5 5.4 4.5h13.2L20 9.5"/><path d="M4 9.5a2.67 2.67 0 0 0 5.33 0 2.67 2.67 0 0 0 5.34 0 2.67 2.67 0 0 0 5.33 0"/><path d="M5.5 12.4v7.1h13v-7.1"/><path d="M10 19.5v-4h4v4"/></svg><span class="oa-a__num">13K+</span></dd>
+      </div>
+      <div class="oa-a__fig">
+        <dt class="oa-a__label">Countries</dt>
+        <dd class="oa-a__val"><svg class="oa-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17"/><path d="M12 3.5c2.3 2.4 3.5 5.2 3.5 8.5s-1.2 6.1-3.5 8.5c-2.3-2.4-3.5-5.2-3.5-8.5s1.2-6.1 3.5-8.5z"/></svg><span class="oa-a__num">25+</span></dd>
+      </div>
+      <div class="oa-a__fig">
+        <dt class="oa-a__label">Media Reach</dt>
+        <dd class="oa-a__val"><svg class="oa-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2.5 12C4.6 8 8 5.5 12 5.5s7.4 2.5 9.5 6.5c-2.1 4-5.5 6.5-9.5 6.5S4.6 16 2.5 12z"/><circle cx="12" cy="12" r="3"/></svg><span class="oa-a__num">36M+</span></dd>
+      </div>
+      <div class="oa-a__fig">
+        <dt class="oa-a__label">Years</dt>
+        <dd class="oa-a__val"><svg class="oa-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 10h17"/><path d="M8 3v4M16 3v4"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 17h.01M12 17h.01"/></svg><span class="oa-a__num">12</span></dd>
+      </div>
+    </dl>
+  </div>
+</section>
+<div class="gx-endmark"><p class="wrap gx-mono">End of About figures, option A</p></div>
+</div>
+
+<div class="gx-opt" id="opt-about-b">
+<div class="gx-band" data-recommended="true">
+  <div class="wrap gx-band__in">
+    <div class="gx-band__id">
+      <span class="gx-mono gx-band__letter">Option B</span>
+      <p class="gx-band__label">On the photograph</p>
+      <span class="gx-chip">Recommended</span>
+    </div>
+    <p class="gx-band__sum">Your copy and photo stay as they are, and the five figures sit across the foot of the photo in a dark frosted strip, so only the bars change. The trade-off is smaller figures than A or C, and on a tablet or phone the strip drops under the photo as a dark band.</p>
+  </div>
+</div>
+<!-- About, option B: on the photograph. Copy left as now; the five figures run across the foot of the photo -->
+<section class="opt-block oa-block oa-b" id="about-b" data-label="On the photograph" aria-labelledby="about-b-h">
+  <div class="wrap oa-b__row">
+    <div class="oa-b__copy">
+      <div class="oa-head">
+        <span class="eyebrow eyebrow--accent">About</span>
+        <h2 class="h2" id="about-b-h">I know what it takes to grow a brand and I know what kills one.</h2>
+        <p class="lead oa-lead">12 years of lived experience across every stage of the journey.</p>
+      </div>
+      <div class="oa-prose">
+        <p>I am Manav. I co-founded LoveRaw and spent 12 years scaling it from my kitchen to one of the UK&rsquo;s fastest-growing plant-based chocolate brands.</p>
+        <p>I secured listings in <strong>Tesco, Asda, Waitrose, Boots, WHSmith, and Co-Op</strong> in the UK, and expanded internationally into <strong>Carrefour, Spar, and Amazon</strong> across 25+ countries. I grew brand awareness from 5% to 18% in a single year, generated over 36 million media impressions, led multi-million-pound fundraising rounds, and brought in over &pound;10 million in cumulative revenue.</p>
+        <p>I also lived the hard side. Product recalls. Trademark disputes. Global supply chain disruption. I have seen the full picture and that is exactly why founders trust me.</p>
+        <p>I now work with food and FMCG brands as a strategic advisor, helping founders scale faster and smarter than I did, while avoiding the mistakes I made along the way. I see the things you cannot see yourself, the hidden problems, the blind spots, the opportunities you are missing.</p>
+      </div>
+    </div>
+    <figure class="oa-b__media">
+      <div class="oa-b__frame">
+        <picture>
+          <source srcset="assets/img/hero-tesco.avif" type="image/avif">
+          <source srcset="assets/img/hero-tesco.webp" type="image/webp">
+          <img src="assets/img/hero-tesco.jpg" alt="Manav Thapar with LoveRaw products in Tesco" width="500" height="667" loading="lazy" decoding="async">
+        </picture>
+        <dl class="oa-b__strip">
+            <div class="oa-b__fig">
+              <dt class="oa-b__label">Revenue</dt>
+              <dd class="oa-b__val"><svg class="oa-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2.5" y="8" width="16" height="11.5" rx="1.8"/><path d="M6 4.8h13.5a2 2 0 0 1 2 2v8.7"/><circle cx="10.5" cy="13.75" r="2.3"/><path d="M5.9 13.75h.01M15.1 13.75h.01"/></svg><span class="oa-b__num">&pound;10M+</span></dd>
+            </div>
+            <div class="oa-b__fig">
+              <dt class="oa-b__label">Stores</dt>
+              <dd class="oa-b__val"><svg class="oa-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 9.5 5.4 4.5h13.2L20 9.5"/><path d="M4 9.5a2.67 2.67 0 0 0 5.33 0 2.67 2.67 0 0 0 5.34 0 2.67 2.67 0 0 0 5.33 0"/><path d="M5.5 12.4v7.1h13v-7.1"/><path d="M10 19.5v-4h4v4"/></svg><span class="oa-b__num">13K+</span></dd>
+            </div>
+            <div class="oa-b__fig">
+              <dt class="oa-b__label">Countries</dt>
+              <dd class="oa-b__val"><svg class="oa-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17"/><path d="M12 3.5c2.3 2.4 3.5 5.2 3.5 8.5s-1.2 6.1-3.5 8.5c-2.3-2.4-3.5-5.2-3.5-8.5s1.2-6.1 3.5-8.5z"/></svg><span class="oa-b__num">25+</span></dd>
+            </div>
+            <div class="oa-b__fig">
+              <dt class="oa-b__label">Media Reach</dt>
+              <dd class="oa-b__val"><svg class="oa-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2.5 12C4.6 8 8 5.5 12 5.5s7.4 2.5 9.5 6.5c-2.1 4-5.5 6.5-9.5 6.5S4.6 16 2.5 12z"/><circle cx="12" cy="12" r="3"/></svg><span class="oa-b__num">36M+</span></dd>
+            </div>
+            <div class="oa-b__fig">
+              <dt class="oa-b__label">Years</dt>
+              <dd class="oa-b__val"><svg class="oa-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 10h17"/><path d="M8 3v4M16 3v4"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 17h.01M12 17h.01"/></svg><span class="oa-b__num">12</span></dd>
+            </div>
+        </dl>
+      </div>
+      <figcaption>Manav Thapar with LoveRaw products in Tesco</figcaption>
+    </figure>
+  </div>
+</section>
+<div class="gx-endmark"><p class="wrap gx-mono">End of About figures, option B</p></div>
+</div>
+
+<div class="gx-opt" id="opt-about-c">
+<div class="gx-band">
+  <div class="wrap gx-band__in">
+    <div class="gx-band__id">
+      <span class="gx-mono gx-band__letter">Option C</span>
+      <p class="gx-band__label">Evidence plate</p>
+      
+    </div>
+    <p class="gx-band__sum">The section is rebuilt: heading on the left, story on the right, then the photo joined to a dark panel that lists the five figures. It gives the numbers the most weight, but puts a heavy dark block just before the Core Areas.</p>
+  </div>
+</div>
+<!-- About, option C: evidence plate. Photograph and an ink ledger of the five figures, one card -->
+<section class="opt-block oa-block oa-c" id="about-c" data-label="Evidence plate" aria-labelledby="about-c-h">
+  <div class="wrap">
+    <div class="oa-c__top">
+      <div class="oa-head">
+        <span class="eyebrow eyebrow--accent">About</span>
+        <h2 class="h2" id="about-c-h">I know what it takes to grow a brand and I know what kills one.</h2>
+        <p class="lead oa-lead">12 years of lived experience across every stage of the journey.</p>
+      </div>
+      <div class="oa-prose">
+        <p>I am Manav. I co-founded LoveRaw and spent 12 years scaling it from my kitchen to one of the UK&rsquo;s fastest-growing plant-based chocolate brands.</p>
+        <p>I secured listings in <strong>Tesco, Asda, Waitrose, Boots, WHSmith, and Co-Op</strong> in the UK, and expanded internationally into <strong>Carrefour, Spar, and Amazon</strong> across 25+ countries. I grew brand awareness from 5% to 18% in a single year, generated over 36 million media impressions, led multi-million-pound fundraising rounds, and brought in over &pound;10 million in cumulative revenue.</p>
+        <p>I also lived the hard side. Product recalls. Trademark disputes. Global supply chain disruption. I have seen the full picture and that is exactly why founders trust me.</p>
+        <p>I now work with food and FMCG brands as a strategic advisor, helping founders scale faster and smarter than I did, while avoiding the mistakes I made along the way. I see the things you cannot see yourself, the hidden problems, the blind spots, the opportunities you are missing.</p>
+      </div>
+    </div>
+    <div class="oa-c__plate">
+      <figure class="oa-c__photo">
+        <picture>
+          <source srcset="assets/img/hero-tesco.avif" type="image/avif">
+          <source srcset="assets/img/hero-tesco.webp" type="image/webp">
+          <img src="assets/img/hero-tesco.jpg" alt="Manav Thapar with LoveRaw products in Tesco" width="500" height="667" loading="lazy" decoding="async">
+        </picture>
+        <figcaption class="oa-c__cap">Manav Thapar with LoveRaw products in Tesco</figcaption>
+      </figure>
+      <div class="oa-c__panel">
+        <dl class="oa-c__list">
+          <div class="oa-c__line">
+            <dt class="oa-c__label">Revenue</dt>
+            <dd class="oa-c__val"><span class="oa-c__chip"><svg class="oa-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2.5" y="8" width="16" height="11.5" rx="1.8"/><path d="M6 4.8h13.5a2 2 0 0 1 2 2v8.7"/><circle cx="10.5" cy="13.75" r="2.3"/><path d="M5.9 13.75h.01M15.1 13.75h.01"/></svg></span><span class="oa-c__num">&pound;10M+</span></dd>
+          </div>
+          <div class="oa-c__line">
+            <dt class="oa-c__label">Stores</dt>
+            <dd class="oa-c__val"><span class="oa-c__chip"><svg class="oa-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 9.5 5.4 4.5h13.2L20 9.5"/><path d="M4 9.5a2.67 2.67 0 0 0 5.33 0 2.67 2.67 0 0 0 5.34 0 2.67 2.67 0 0 0 5.33 0"/><path d="M5.5 12.4v7.1h13v-7.1"/><path d="M10 19.5v-4h4v4"/></svg></span><span class="oa-c__num">13K+</span></dd>
+          </div>
+          <div class="oa-c__line">
+            <dt class="oa-c__label">Countries</dt>
+            <dd class="oa-c__val"><span class="oa-c__chip"><svg class="oa-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17"/><path d="M12 3.5c2.3 2.4 3.5 5.2 3.5 8.5s-1.2 6.1-3.5 8.5c-2.3-2.4-3.5-5.2-3.5-8.5s1.2-6.1 3.5-8.5z"/></svg></span><span class="oa-c__num">25+</span></dd>
+          </div>
+          <div class="oa-c__line">
+            <dt class="oa-c__label">Media Reach</dt>
+            <dd class="oa-c__val"><span class="oa-c__chip"><svg class="oa-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2.5 12C4.6 8 8 5.5 12 5.5s7.4 2.5 9.5 6.5c-2.1 4-5.5 6.5-9.5 6.5S4.6 16 2.5 12z"/><circle cx="12" cy="12" r="3"/></svg></span><span class="oa-c__num">36M+</span></dd>
+          </div>
+          <div class="oa-c__line">
+            <dt class="oa-c__label">Years</dt>
+            <dd class="oa-c__val"><span class="oa-c__chip"><svg class="oa-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 10h17"/><path d="M8 3v4M16 3v4"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 17h.01M12 17h.01"/></svg></span><span class="oa-c__num">12</span></dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="gx-endmark"><p class="wrap gx-mono">End of About figures, option C</p></div>
+</div>
+
+<!-- ================= Group 2: 10 Core Areas (lane file options/areas.html, sections pasted verbatim) ================= -->
+<section class="gx-group" id="areas" aria-labelledby="areas-gh">
+  <div class="wrap">
+    <span class="gx-mono gx-group__n">02 / 04</span>
+    <h2 class="h2 gx-group__h" id="areas-gh">10 Core Areas</h2>
+    <p class="lead gx-group__ask">At present you have to scroll sideways to reach all ten. You suggested a list or a pie chart. Four ways to show all ten at once.</p>
+    <p class="gx-mono gx-group__count">4 options</p>
+  </div>
+</section>
+<!-- Lane: 10 core areas (ob-). Four alternatives to the sideways slider. Copy is verbatim from index.html #what-i-do. -->
+
+<div class="gx-opt" id="opt-areas-a">
+<div class="gx-band" data-recommended="true">
+  <div class="wrap gx-band__in">
+    <div class="gx-band__id">
+      <span class="gx-mono gx-band__letter">Option A</span>
+      <p class="gx-band__label">Editorial index (flat at every width)</p>
+      <span class="gx-chip">Recommended</span>
+    </div>
+    <p class="gx-band__sum">All ten areas sit open as one numbered list under a terracotta heading band, two columns on a laptop and one on a phone, with nothing to click or slide. The trade-off is length on a phone, where every description shows at once.</p>
+  </div>
+</div>
+<!-- A. Editorial index. RECOMMENDED. All ten areas open, numbered, two columns (one on phones).
+     A plain list at every width: nothing to click, no script. The heading sits on a full-bleed terracotta band
+     (the section's one colour anchor now that the terracotta cards are gone), with the eyebrow, heading and the
+     numerals below all on the container's left edge. .ob-nb only stops "hard-won" breaking; the words are unchanged. -->
+<section class="opt-block ob-block ob-index" id="areas-a" data-label="Editorial index" data-recommended="true" aria-labelledby="areas-a-h">
+  <div class="ob-index__band">
+    <div class="wrap shead">
+      <div class="shead__title">
+        <span class="eyebrow">What I Do</span>
+        <h2 class="h2" id="areas-a-h">10 Core Areas</h2>
+      </div>
+      <div class="shead__lead"><p class="lead">I work with ambitious food and FMCG brands across ten core areas, bringing <span class="ob-nb">hard-won</span> experience from building, scaling, nearly losing, and rebuilding.</p></div>
+    </div>
+  </div>
+  <ol class="wrap ob-index__list">
+    <li class="ob-index__item">
+      <span class="ob-index__num" aria-hidden="true">01</span>
+      <div class="ob-index__text"><h3 class="ob-index__title">Retail &amp; Distribution Strategy</h3><p class="ob-index__desc">I secured listings in Tesco, Asda, Waitrose, Boots, WHSmith, Co-Op, Carrefour, Spar, and Amazon. I help brands break into Tier 1 retailers, nail buyer pitches, optimise pricing, and build commercial relationships that actually last.</p></div>
+    </li>
+    <li class="ob-index__item">
+      <span class="ob-index__num" aria-hidden="true">02</span>
+      <div class="ob-index__text"><h3 class="ob-index__title">Fundraising &amp; Investor Readiness</h3><p class="ob-index__desc">I led multi-million-pound fundraising rounds and sat across the table from angels, VCs, and PE firms. I help founders build investor narratives, sharpen financial models, target the right investors, and prepare for due diligence.</p></div>
+    </li>
+    <li class="ob-index__item">
+      <span class="ob-index__num" aria-hidden="true">03</span>
+      <div class="ob-index__text"><h3 class="ob-index__title">Brand Strategy &amp; Growth</h3><p class="ob-index__desc">I grew LoveRaw&rsquo;s awareness from 5% to 18% in one year, generated 36M+ media reach, and built a brand that owned 5 of the top 7 bars in its category. I help founders sharpen messaging, build community, and create brand love that converts.</p></div>
+    </li>
+    <li class="ob-index__item">
+      <span class="ob-index__num" aria-hidden="true">04</span>
+      <div class="ob-index__text"><h3 class="ob-index__title">Building Your Economic Moat</h3><p class="ob-index__desc">Scaling is one thing. Making your business defensible is another. I help founders build structural advantages: category ownership, IP protection, supply chain exclusivity, and brand loyalty that compounds over time.</p></div>
+    </li>
+    <li class="ob-index__item">
+      <span class="ob-index__num" aria-hidden="true">05</span>
+      <div class="ob-index__text"><h3 class="ob-index__title">NPD &amp; Innovation Pipeline</h3><p class="ob-index__desc">I built a 3-year innovation pipeline and developed SKUs that led their segments in taste and performance. I help brands choose which products to back, validate them fast, and position them for both retailers and consumers.</p></div>
+    </li>
+    <li class="ob-index__item">
+      <span class="ob-index__num" aria-hidden="true">06</span>
+      <div class="ob-index__text"><h3 class="ob-index__title">International Expansion</h3><p class="ob-index__desc">I expanded LoveRaw into 25+ countries, secured a worldwide distribution agreement with Spar, and recruited international GMs. I help brands grow their global footprint without diluting focus or product-market fit.</p></div>
+    </li>
+    <li class="ob-index__item">
+      <span class="ob-index__num" aria-hidden="true">07</span>
+      <div class="ob-index__text"><h3 class="ob-index__title">Wealth Preservation &amp; Capital Efficiency</h3><p class="ob-index__desc">I increased gross margins through smart cost-cutting and pricing, and I learned the hard way what happens when founders do not separate personal wealth from business risk. I help founders build financial resilience alongside growth.</p></div>
+    </li>
+    <li class="ob-index__item">
+      <span class="ob-index__num" aria-hidden="true">08</span>
+      <div class="ob-index__text"><h3 class="ob-index__title">Operational Resilience &amp; Crisis Management</h3><p class="ob-index__desc">Product recalls. Trademark disputes. Global supply chain disruption. Administration. I have navigated all of it. I help founders create contingency plans, build supply chain resilience, and make sharp decisions under pressure.</p></div>
+    </li>
+    <li class="ob-index__item">
+      <span class="ob-index__num" aria-hidden="true">09</span>
+      <div class="ob-index__text"><h3 class="ob-index__title">Sustainability &amp; Mission-Led Business</h3><p class="ob-index__desc">I achieved 41% lower emissions versus dairy chocolate, developed a clean-label ethical product range, and embedded ESG into product, brand, and team values. I help brands build purpose into operations. No greenwashing, just smart sustainability.</p></div>
+    </li>
+    <li class="ob-index__item">
+      <span class="ob-index__num" aria-hidden="true">10</span>
+      <div class="ob-index__text"><h3 class="ob-index__title">Founder Mentorship &amp; Productivity</h3><p class="ob-index__desc">I grew a global brand while raising 4 young children. I have navigated overwhelm, identity shifts, and the pressure of being the person everyone depends on. I mentor founders with practical tools for time, energy, and decision-making.</p></div>
+    </li>
+  </ol>
+</section>
+<div class="gx-endmark"><p class="wrap gx-mono">End of 10 Core Areas, option A</p></div>
+</div>
+
+<div class="gx-opt" id="opt-areas-b">
+<div class="gx-band">
+  <div class="wrap gx-band__in">
+    <div class="gx-band__id">
+      <span class="gx-mono gx-band__letter">Option B</span>
+      <p class="gx-band__label">Accordion with photograph</p>
+      
+    </div>
+    <p class="gx-band__sum">The ten titles read as one list and each description opens on its own row, with the mascot photo beside them on a laptop. Nine descriptions stay closed until someone opens them, and the mascot is lighter in tone than the rest of the page.</p>
+  </div>
+</div>
+<!-- B. Accordion: ten titles as one scannable index. Rows open independently (native details with no name attribute),
+     so opening one never collapses another. Row 01 is open by default. The mascot photograph (story-mascot, live card 03)
+     shows from 810px; on phones it is hidden and not downloaded, leaving the heading and the list. -->
+<section class="opt-block ob-block ob-acc" id="areas-b" data-label="Accordion" aria-labelledby="areas-b-h">
+  <div class="wrap ob-acc__row">
+    <div class="ob-acc__side">
+      <div class="ob-acc__head">
+        <span class="eyebrow eyebrow--accent">What I Do</span>
+        <h2 class="h2" id="areas-b-h">10 Core Areas</h2>
+        <p class="lead">I work with ambitious food and FMCG brands across ten core areas, bringing <span class="ob-nb">hard-won</span> experience from building, scaling, nearly losing, and rebuilding.</p>
+      </div>
+      <figure class="ob-acc__photo">
+        <picture>
+          <source srcset="assets/img/story-mascot.avif" type="image/avif">
+          <source srcset="assets/img/story-mascot.webp" type="image/webp">
+          <img src="assets/img/story-mascot.jpg" alt="" width="800" height="1067" loading="lazy" decoding="async">
+        </picture>
+      </figure>
+    </div>
+    <div class="ob-acc__list">
+      <details class="ob-acc__item" open>
+        <summary class="ob-acc__sum"><span class="ob-acc__num" aria-hidden="true">01</span><h3 class="ob-acc__title">Retail &amp; Distribution Strategy</h3><span class="ob-acc__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14"/><path class="ob-acc__v" d="M12 5v14"/></svg></span></summary>
+        <div class="ob-acc__body"><p>I secured listings in Tesco, Asda, Waitrose, Boots, WHSmith, Co-Op, Carrefour, Spar, and Amazon. I help brands break into Tier 1 retailers, nail buyer pitches, optimise pricing, and build commercial relationships that actually last.</p></div>
+      </details>
+      <details class="ob-acc__item">
+        <summary class="ob-acc__sum"><span class="ob-acc__num" aria-hidden="true">02</span><h3 class="ob-acc__title">Fundraising &amp; Investor Readiness</h3><span class="ob-acc__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14"/><path class="ob-acc__v" d="M12 5v14"/></svg></span></summary>
+        <div class="ob-acc__body"><p>I led multi-million-pound fundraising rounds and sat across the table from angels, VCs, and PE firms. I help founders build investor narratives, sharpen financial models, target the right investors, and prepare for due diligence.</p></div>
+      </details>
+      <details class="ob-acc__item">
+        <summary class="ob-acc__sum"><span class="ob-acc__num" aria-hidden="true">03</span><h3 class="ob-acc__title">Brand Strategy &amp; Growth</h3><span class="ob-acc__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14"/><path class="ob-acc__v" d="M12 5v14"/></svg></span></summary>
+        <div class="ob-acc__body"><p>I grew LoveRaw&rsquo;s awareness from 5% to 18% in one year, generated 36M+ media reach, and built a brand that owned 5 of the top 7 bars in its category. I help founders sharpen messaging, build community, and create brand love that converts.</p></div>
+      </details>
+      <details class="ob-acc__item">
+        <summary class="ob-acc__sum"><span class="ob-acc__num" aria-hidden="true">04</span><h3 class="ob-acc__title">Building Your Economic Moat</h3><span class="ob-acc__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14"/><path class="ob-acc__v" d="M12 5v14"/></svg></span></summary>
+        <div class="ob-acc__body"><p>Scaling is one thing. Making your business defensible is another. I help founders build structural advantages: category ownership, IP protection, supply chain exclusivity, and brand loyalty that compounds over time.</p></div>
+      </details>
+      <details class="ob-acc__item">
+        <summary class="ob-acc__sum"><span class="ob-acc__num" aria-hidden="true">05</span><h3 class="ob-acc__title">NPD &amp; Innovation Pipeline</h3><span class="ob-acc__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14"/><path class="ob-acc__v" d="M12 5v14"/></svg></span></summary>
+        <div class="ob-acc__body"><p>I built a 3-year innovation pipeline and developed SKUs that led their segments in taste and performance. I help brands choose which products to back, validate them fast, and position them for both retailers and consumers.</p></div>
+      </details>
+      <details class="ob-acc__item">
+        <summary class="ob-acc__sum"><span class="ob-acc__num" aria-hidden="true">06</span><h3 class="ob-acc__title">International Expansion</h3><span class="ob-acc__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14"/><path class="ob-acc__v" d="M12 5v14"/></svg></span></summary>
+        <div class="ob-acc__body"><p>I expanded LoveRaw into 25+ countries, secured a worldwide distribution agreement with Spar, and recruited international GMs. I help brands grow their global footprint without diluting focus or product-market fit.</p></div>
+      </details>
+      <details class="ob-acc__item">
+        <summary class="ob-acc__sum"><span class="ob-acc__num" aria-hidden="true">07</span><h3 class="ob-acc__title">Wealth Preservation &amp; Capital Efficiency</h3><span class="ob-acc__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14"/><path class="ob-acc__v" d="M12 5v14"/></svg></span></summary>
+        <div class="ob-acc__body"><p>I increased gross margins through smart cost-cutting and pricing, and I learned the hard way what happens when founders do not separate personal wealth from business risk. I help founders build financial resilience alongside growth.</p></div>
+      </details>
+      <details class="ob-acc__item">
+        <summary class="ob-acc__sum"><span class="ob-acc__num" aria-hidden="true">08</span><h3 class="ob-acc__title">Operational Resilience &amp; Crisis Management</h3><span class="ob-acc__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14"/><path class="ob-acc__v" d="M12 5v14"/></svg></span></summary>
+        <div class="ob-acc__body"><p>Product recalls. Trademark disputes. Global supply chain disruption. Administration. I have navigated all of it. I help founders create contingency plans, build supply chain resilience, and make sharp decisions under pressure.</p></div>
+      </details>
+      <details class="ob-acc__item">
+        <summary class="ob-acc__sum"><span class="ob-acc__num" aria-hidden="true">09</span><h3 class="ob-acc__title">Sustainability &amp; Mission-Led Business</h3><span class="ob-acc__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14"/><path class="ob-acc__v" d="M12 5v14"/></svg></span></summary>
+        <div class="ob-acc__body"><p>I achieved 41% lower emissions versus dairy chocolate, developed a clean-label ethical product range, and embedded ESG into product, brand, and team values. I help brands build purpose into operations. No greenwashing, just smart sustainability.</p></div>
+      </details>
+      <details class="ob-acc__item">
+        <summary class="ob-acc__sum"><span class="ob-acc__num" aria-hidden="true">10</span><h3 class="ob-acc__title">Founder Mentorship &amp; Productivity</h3><span class="ob-acc__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14"/><path class="ob-acc__v" d="M12 5v14"/></svg></span></summary>
+        <div class="ob-acc__body"><p>I grew a global brand while raising 4 young children. I have navigated overwhelm, identity shifts, and the pressure of being the person everyone depends on. I mentor founders with practical tools for time, energy, and decision-making.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+<div class="gx-endmark"><p class="wrap gx-mono">End of 10 Core Areas, option B</p></div>
+</div>
+
+<div class="gx-opt" id="opt-areas-c">
+<div class="gx-band">
+  <div class="wrap gx-band__in">
+    <div class="gx-band__id">
+      <span class="gx-mono gx-band__letter">Option C</span>
+      <p class="gx-band__label">Card grid</p>
+      
+    </div>
+    <p class="gx-band__sum">Your current terracotta cards, all ten on screen at once in a grid, so nothing slides sideways. It is the heaviest option, a wall of colour, and the longest on a phone.</p>
+  </div>
+</div>
+<!-- C. Card grid: the live page's terracotta cards, all ten at once. The heading takes the first two cells (4 x 3 from 1200px,
+     2 columns from 600px, 1 on phones). Every card keeps the same short top zone for its number, so titles in a row line up.
+     No photo strips: at 1440 they were 317 x 124, too thin to read as photographs. -->
+<section class="opt-block ob-block ob-grid" id="areas-c" data-label="Card grid" aria-labelledby="areas-c-h">
+  <div class="wrap ob-grid__cells">
+    <div class="ob-grid__head">
+      <div class="ob-grid__title">
+        <span class="eyebrow eyebrow--accent">What I Do</span>
+        <h2 class="h2" id="areas-c-h">10 Core Areas</h2>
+      </div>
+      <p class="lead">I work with ambitious food and FMCG brands across ten core areas, bringing <span class="ob-nb">hard-won</span> experience from building, scaling, nearly losing, and rebuilding.</p>
+    </div>
+    <article class="ob-grid__card">
+      <div class="ob-grid__top"><span class="ob-grid__idx">01</span></div>
+      <div class="ob-grid__body"><h3>Retail &amp; Distribution Strategy</h3><p>I secured listings in Tesco, Asda, Waitrose, Boots, WHSmith, Co-Op, Carrefour, Spar, and Amazon. I help brands break into Tier 1 retailers, nail buyer pitches, optimise pricing, and build commercial relationships that actually last.</p></div>
+    </article>
+    <article class="ob-grid__card">
+      <div class="ob-grid__top"><span class="ob-grid__idx">02</span></div>
+      <div class="ob-grid__body"><h3>Fundraising &amp; Investor Readiness</h3><p>I led multi-million-pound fundraising rounds and sat across the table from angels, VCs, and PE firms. I help founders build investor narratives, sharpen financial models, target the right investors, and prepare for due diligence.</p></div>
+    </article>
+    <article class="ob-grid__card">
+      <div class="ob-grid__top"><span class="ob-grid__idx">03</span></div>
+      <div class="ob-grid__body"><h3>Brand Strategy &amp; Growth</h3><p>I grew LoveRaw&rsquo;s awareness from 5% to 18% in one year, generated 36M+ media reach, and built a brand that owned 5 of the top 7 bars in its category. I help founders sharpen messaging, build community, and create brand love that converts.</p></div>
+    </article>
+    <article class="ob-grid__card">
+      <div class="ob-grid__top"><span class="ob-grid__idx">04</span></div>
+      <div class="ob-grid__body"><h3>Building Your Economic Moat</h3><p>Scaling is one thing. Making your business defensible is another. I help founders build structural advantages: category ownership, IP protection, supply chain exclusivity, and brand loyalty that compounds over time.</p></div>
+    </article>
+    <article class="ob-grid__card">
+      <div class="ob-grid__top"><span class="ob-grid__idx">05</span></div>
+      <div class="ob-grid__body"><h3>NPD &amp; Innovation Pipeline</h3><p>I built a 3-year innovation pipeline and developed SKUs that led their segments in taste and performance. I help brands choose which products to back, validate them fast, and position them for both retailers and consumers.</p></div>
+    </article>
+    <article class="ob-grid__card">
+      <div class="ob-grid__top"><span class="ob-grid__idx">06</span></div>
+      <div class="ob-grid__body"><h3>International Expansion</h3><p>I expanded LoveRaw into 25+ countries, secured a worldwide distribution agreement with Spar, and recruited international GMs. I help brands grow their global footprint without diluting focus or product-market fit.</p></div>
+    </article>
+    <article class="ob-grid__card">
+      <div class="ob-grid__top"><span class="ob-grid__idx">07</span></div>
+      <div class="ob-grid__body"><h3>Wealth Preservation &amp; Capital Efficiency</h3><p>I increased gross margins through smart cost-cutting and pricing, and I learned the hard way what happens when founders do not separate personal wealth from business risk. I help founders build financial resilience alongside growth.</p></div>
+    </article>
+    <article class="ob-grid__card">
+      <div class="ob-grid__top"><span class="ob-grid__idx">08</span></div>
+      <div class="ob-grid__body"><h3>Operational Resilience &amp; Crisis Management</h3><p>Product recalls. Trademark disputes. Global supply chain disruption. Administration. I have navigated all of it. I help founders create contingency plans, build supply chain resilience, and make sharp decisions under pressure.</p></div>
+    </article>
+    <article class="ob-grid__card">
+      <div class="ob-grid__top"><span class="ob-grid__idx">09</span></div>
+      <div class="ob-grid__body"><h3>Sustainability &amp; Mission-Led Business</h3><p>I achieved 41% lower emissions versus dairy chocolate, developed a clean-label ethical product range, and embedded ESG into product, brand, and team values. I help brands build purpose into operations. No greenwashing, just smart sustainability.</p></div>
+    </article>
+    <article class="ob-grid__card">
+      <div class="ob-grid__top"><span class="ob-grid__idx">10</span></div>
+      <div class="ob-grid__body"><h3>Founder Mentorship &amp; Productivity</h3><p>I grew a global brand while raising 4 young children. I have navigated overwhelm, identity shifts, and the pressure of being the person everyone depends on. I mentor founders with practical tools for time, energy, and decision-making.</p></div>
+    </article>
+  </div>
+</section>
+<div class="gx-endmark"><p class="wrap gx-mono">End of 10 Core Areas, option C</p></div>
+</div>
+
+<div class="gx-opt" id="opt-areas-d">
+<div class="gx-band">
+  <div class="wrap gx-band__in">
+    <div class="gx-band__id">
+      <span class="gx-mono gx-band__letter">Option D</span>
+      <p class="gx-band__label">Wheel</p>
+      
+    </div>
+    <p class="gx-band__sum">The pie chart you suggested: ten equal segments, and choosing one shows that area in the panel beside it (under it on a phone, where the ring shows numbers only). Only one description shows at a time, so reading all ten means clicking through them.</p>
+  </div>
+</div>
+<!-- D. Wheel: ten EQUAL segments (no proportions implied), every full title on the ring from 600px.
+     With script, at every width: click, focus, the arrow keys, Home, End, Space or Enter choose a segment; hover only highlights.
+     The hub shows the chosen number; the panel carries the "01 / 10" counter. In the stacked layout (under 1100px) a choice
+     scrolls the panel into view if it is off screen.
+     Phones (under 600px, script on): a compact ring about 300px wide with numbers only; the titles live in the panel below.
+     No script: the segments are jump links beside (or above) the full list; on phones the dial is not drawn and the list reads alone. -->
+<section class="opt-block ob-block ob-wheel" id="areas-d" data-label="Wheel" data-ob-wheel aria-labelledby="areas-d-h">
+  <div class="wrap shead ob-shead">
+    <div class="shead__title">
+      <span class="eyebrow eyebrow--accent">What I Do</span>
+      <h2 class="h2" id="areas-d-h">10 Core Areas</h2>
+    </div>
+    <div class="shead__lead"><p class="lead">I work with ambitious food and FMCG brands across ten core areas, bringing <span class="ob-nb">hard-won</span> experience from building, scaling, nearly losing, and rebuilding.</p></div>
+  </div>
+  <div class="wrap ob-wheel__stage">
+    <div class="ob-wheel__dial">
+      <svg class="ob-wheel__svg" viewBox="-359 -216 718 432" role="group" aria-label="The ten core areas as a wheel">
+        <g class="ob-wheel__segs">
+          <a class="ob-wheel__seg" href="#ob-d-01" data-i="0" aria-label="01 Retail &amp; Distribution Strategy" style="--ob-dx:3.1px;--ob-dy:-9.5px">
+            <g class="ob-wheel__wedge"><path class="ob-wheel__arc" d="M0 -170A170 170 0 0 1 99.9 -137.5L55.3 -76A94 94 0 0 0 0 -94Z"/><text class="ob-wheel__n" x="40.8" y="-120.5" text-anchor="middle">01</text></g>
+            <text class="ob-wheel__lab" text-anchor="start"><tspan x="62.9" y="-196.3">Retail &amp; Distribution</tspan><tspan x="62.9" y="-177.3">Strategy</tspan></text>
+          </a>
+          <a class="ob-wheel__seg" href="#ob-d-02" data-i="1" aria-label="02 Fundraising &amp; Investor Readiness" style="--ob-dx:8.1px;--ob-dy:-5.9px">
+            <g class="ob-wheel__wedge"><path class="ob-wheel__arc" d="M99.9 -137.5A170 170 0 0 1 161.7 -52.5L89.4 -29A94 94 0 0 0 55.3 -76Z"/><text class="ob-wheel__n" x="106.8" y="-72.6" text-anchor="middle">02</text></g>
+            <text class="ob-wheel__lab" text-anchor="start"><tspan x="154.9" y="-123.1">Fundraising</tspan><tspan x="154.9" y="-104.1">&amp; Investor Readiness</tspan></text>
+          </a>
+          <a class="ob-wheel__seg" href="#ob-d-03" data-i="2" aria-label="03 Brand Strategy &amp; Growth" style="--ob-dx:10px;--ob-dy:0px">
+            <g class="ob-wheel__wedge"><path class="ob-wheel__arc" d="M161.7 -52.5A170 170 0 0 1 161.7 52.5L89.4 29A94 94 0 0 0 89.4 -29Z"/><text class="ob-wheel__n" x="132" y="5" text-anchor="middle">03</text></g>
+            <text class="ob-wheel__lab" text-anchor="start"><tspan x="190" y="-4.7">Brand Strategy</tspan><tspan x="190" y="14.3">&amp; Growth</tspan></text>
+          </a>
+          <a class="ob-wheel__seg" href="#ob-d-04" data-i="3" aria-label="04 Building Your Economic Moat" style="--ob-dx:8.1px;--ob-dy:5.9px">
+            <g class="ob-wheel__wedge"><path class="ob-wheel__arc" d="M161.7 52.5A170 170 0 0 1 99.9 137.5L55.3 76A94 94 0 0 0 89.4 29Z"/><text class="ob-wheel__n" x="106.8" y="82.6" text-anchor="middle">04</text></g>
+            <text class="ob-wheel__lab" text-anchor="start"><tspan x="154.9" y="113.7">Building Your</tspan><tspan x="154.9" y="132.7">Economic Moat</tspan></text>
+          </a>
+          <a class="ob-wheel__seg" href="#ob-d-05" data-i="4" aria-label="05 NPD &amp; Innovation Pipeline" style="--ob-dx:3.1px;--ob-dy:9.5px">
+            <g class="ob-wheel__wedge"><path class="ob-wheel__arc" d="M99.9 137.5A170 170 0 0 1 0 170L0 94A94 94 0 0 0 55.3 76Z"/><text class="ob-wheel__n" x="40.8" y="130.5" text-anchor="middle">05</text></g>
+            <text class="ob-wheel__lab" text-anchor="start"><tspan x="62.9" y="186.9">NPD &amp; Innovation</tspan><tspan x="62.9" y="205.9">Pipeline</tspan></text>
+          </a>
+          <a class="ob-wheel__seg" href="#ob-d-06" data-i="5" aria-label="06 International Expansion" style="--ob-dx:-3.1px;--ob-dy:9.5px">
+            <g class="ob-wheel__wedge"><path class="ob-wheel__arc" d="M0 170A170 170 0 0 1 -99.9 137.5L-55.3 76A94 94 0 0 0 0 94Z"/><text class="ob-wheel__n" x="-40.8" y="130.5" text-anchor="middle">06</text></g>
+            <text class="ob-wheel__lab" text-anchor="end"><tspan x="-62.9" y="186.9">International</tspan><tspan x="-62.9" y="205.9">Expansion</tspan></text>
+          </a>
+          <a class="ob-wheel__seg" href="#ob-d-07" data-i="6" aria-label="07 Wealth Preservation &amp; Capital Efficiency" style="--ob-dx:-8.1px;--ob-dy:5.9px">
+            <g class="ob-wheel__wedge"><path class="ob-wheel__arc" d="M-99.9 137.5A170 170 0 0 1 -161.7 52.5L-89.4 29A94 94 0 0 0 -55.3 76Z"/><text class="ob-wheel__n" x="-106.8" y="82.6" text-anchor="middle">07</text></g>
+            <text class="ob-wheel__lab" text-anchor="end"><tspan x="-154.9" y="113.7">Wealth Preservation</tspan><tspan x="-154.9" y="132.7">&amp; Capital Efficiency</tspan></text>
+          </a>
+          <a class="ob-wheel__seg" href="#ob-d-08" data-i="7" aria-label="08 Operational Resilience &amp; Crisis Management" style="--ob-dx:-10px;--ob-dy:0px">
+            <g class="ob-wheel__wedge"><path class="ob-wheel__arc" d="M-161.7 52.5A170 170 0 0 1 -161.7 -52.5L-89.4 -29A94 94 0 0 0 -89.4 29Z"/><text class="ob-wheel__n" x="-132" y="5" text-anchor="middle">08</text></g>
+            <text class="ob-wheel__lab" text-anchor="end"><tspan x="-190" y="-4.7">Operational Resilience</tspan><tspan x="-190" y="14.3">&amp; Crisis Management</tspan></text>
+          </a>
+          <a class="ob-wheel__seg" href="#ob-d-09" data-i="8" aria-label="09 Sustainability &amp; Mission-Led Business" style="--ob-dx:-8.1px;--ob-dy:-5.9px">
+            <g class="ob-wheel__wedge"><path class="ob-wheel__arc" d="M-161.7 -52.5A170 170 0 0 1 -99.9 -137.5L-55.3 -76A94 94 0 0 0 -89.4 -29Z"/><text class="ob-wheel__n" x="-106.8" y="-72.6" text-anchor="middle">09</text></g>
+            <text class="ob-wheel__lab" text-anchor="end"><tspan x="-154.9" y="-123.1">Sustainability</tspan><tspan x="-154.9" y="-104.1">&amp; Mission-Led Business</tspan></text>
+          </a>
+          <a class="ob-wheel__seg" href="#ob-d-10" data-i="9" aria-label="10 Founder Mentorship &amp; Productivity" style="--ob-dx:-3.1px;--ob-dy:-9.5px">
+            <g class="ob-wheel__wedge"><path class="ob-wheel__arc" d="M-99.9 -137.5A170 170 0 0 1 0 -170L0 -94A94 94 0 0 0 -55.3 -76Z"/><text class="ob-wheel__n" x="-40.8" y="-120.5" text-anchor="middle">10</text></g>
+            <text class="ob-wheel__lab" text-anchor="end"><tspan x="-62.9" y="-196.3">Founder Mentorship</tspan><tspan x="-62.9" y="-177.3">&amp; Productivity</tspan></text>
+          </a>
+        </g>
+        <g class="ob-wheel__hub" aria-hidden="true">
+          <text class="ob-wheel__hubnum" x="0" y="19" text-anchor="middle">01</text>
+        </g>
+      </svg>
+    </div>
+    <div class="ob-wheel__panel">
+      <div class="ob-wheel__nav" hidden>
+        <button class="ob-wheel__btn ob-wheel__btn--prev" type="button" aria-label="Previous area"><svg aria-hidden="true"><use href="#arr"/></svg></button>
+        <button class="ob-wheel__btn ob-wheel__btn--next" type="button" aria-label="Next area"><svg aria-hidden="true"><use href="#arr"/></svg></button>
+      </div>
+      <ol class="ob-wheel__list">
+      <li class="ob-wheel__item" id="ob-d-01">
+        <span class="ob-wheel__idx">01 <span class="ob-wheel__of">/ 10</span></span>
+        <div class="ob-wheel__text"><h3 class="ob-wheel__title">Retail &amp; Distribution Strategy</h3><p>I secured listings in Tesco, Asda, Waitrose, Boots, WHSmith, Co-Op, Carrefour, Spar, and Amazon. I help brands break into Tier 1 retailers, nail buyer pitches, optimise pricing, and build commercial relationships that actually last.</p></div>
+      </li>
+      <li class="ob-wheel__item" id="ob-d-02">
+        <span class="ob-wheel__idx">02 <span class="ob-wheel__of">/ 10</span></span>
+        <div class="ob-wheel__text"><h3 class="ob-wheel__title">Fundraising &amp; Investor Readiness</h3><p>I led multi-million-pound fundraising rounds and sat across the table from angels, VCs, and PE firms. I help founders build investor narratives, sharpen financial models, target the right investors, and prepare for due diligence.</p></div>
+      </li>
+      <li class="ob-wheel__item" id="ob-d-03">
+        <span class="ob-wheel__idx">03 <span class="ob-wheel__of">/ 10</span></span>
+        <div class="ob-wheel__text"><h3 class="ob-wheel__title">Brand Strategy &amp; Growth</h3><p>I grew LoveRaw&rsquo;s awareness from 5% to 18% in one year, generated 36M+ media reach, and built a brand that owned 5 of the top 7 bars in its category. I help founders sharpen messaging, build community, and create brand love that converts.</p></div>
+      </li>
+      <li class="ob-wheel__item" id="ob-d-04">
+        <span class="ob-wheel__idx">04 <span class="ob-wheel__of">/ 10</span></span>
+        <div class="ob-wheel__text"><h3 class="ob-wheel__title">Building Your Economic Moat</h3><p>Scaling is one thing. Making your business defensible is another. I help founders build structural advantages: category ownership, IP protection, supply chain exclusivity, and brand loyalty that compounds over time.</p></div>
+      </li>
+      <li class="ob-wheel__item" id="ob-d-05">
+        <span class="ob-wheel__idx">05 <span class="ob-wheel__of">/ 10</span></span>
+        <div class="ob-wheel__text"><h3 class="ob-wheel__title">NPD &amp; Innovation Pipeline</h3><p>I built a 3-year innovation pipeline and developed SKUs that led their segments in taste and performance. I help brands choose which products to back, validate them fast, and position them for both retailers and consumers.</p></div>
+      </li>
+      <li class="ob-wheel__item" id="ob-d-06">
+        <span class="ob-wheel__idx">06 <span class="ob-wheel__of">/ 10</span></span>
+        <div class="ob-wheel__text"><h3 class="ob-wheel__title">International Expansion</h3><p>I expanded LoveRaw into 25+ countries, secured a worldwide distribution agreement with Spar, and recruited international GMs. I help brands grow their global footprint without diluting focus or product-market fit.</p></div>
+      </li>
+      <li class="ob-wheel__item" id="ob-d-07">
+        <span class="ob-wheel__idx">07 <span class="ob-wheel__of">/ 10</span></span>
+        <div class="ob-wheel__text"><h3 class="ob-wheel__title">Wealth Preservation &amp; Capital Efficiency</h3><p>I increased gross margins through smart cost-cutting and pricing, and I learned the hard way what happens when founders do not separate personal wealth from business risk. I help founders build financial resilience alongside growth.</p></div>
+      </li>
+      <li class="ob-wheel__item" id="ob-d-08">
+        <span class="ob-wheel__idx">08 <span class="ob-wheel__of">/ 10</span></span>
+        <div class="ob-wheel__text"><h3 class="ob-wheel__title">Operational Resilience &amp; Crisis Management</h3><p>Product recalls. Trademark disputes. Global supply chain disruption. Administration. I have navigated all of it. I help founders create contingency plans, build supply chain resilience, and make sharp decisions under pressure.</p></div>
+      </li>
+      <li class="ob-wheel__item" id="ob-d-09">
+        <span class="ob-wheel__idx">09 <span class="ob-wheel__of">/ 10</span></span>
+        <div class="ob-wheel__text"><h3 class="ob-wheel__title">Sustainability &amp; Mission-Led Business</h3><p>I achieved 41% lower emissions versus dairy chocolate, developed a clean-label ethical product range, and embedded ESG into product, brand, and team values. I help brands build purpose into operations. No greenwashing, just smart sustainability.</p></div>
+      </li>
+      <li class="ob-wheel__item" id="ob-d-10">
+        <span class="ob-wheel__idx">10 <span class="ob-wheel__of">/ 10</span></span>
+        <div class="ob-wheel__text"><h3 class="ob-wheel__title">Founder Mentorship &amp; Productivity</h3><p>I grew a global brand while raising 4 young children. I have navigated overwhelm, identity shifts, and the pressure of being the person everyone depends on. I mentor founders with practical tools for time, energy, and decision-making.</p></div>
+      </li>
+      </ol>
+    </div>
+  </div>
+</section>
+<div class="gx-endmark"><p class="wrap gx-mono">End of 10 Core Areas, option D</p></div>
+</div>
+
+<!-- ================= Group 3: The Journey (lane file options/journey.html, sections pasted verbatim) ================= -->
+<section class="gx-group" id="journey" aria-labelledby="journey-gh">
+  <div class="wrap">
+    <span class="gx-mono gx-group__n">03 / 04</span>
+    <h2 class="h2 gx-group__h" id="journey-gh">The Journey</h2>
+    <p class="lead gx-group__ask">The lines and sections make it read like separate posts. You asked for it to read as one journey. Three alternatives.</p>
+    <p class="gx-mono gx-group__count">3 options</p>
+  </div>
+</section>
+<!-- The LoveRaw Journey: three alternatives. Lane prefix oc-. Styles in options/journey.css. No JS.
+     Copy is verbatim from index.html #story. .oc-nb only stops a hyphenated word breaking across lines.
+     .reveal is bronn.css's own rise; it only animates where html has the .js class (index.html), so every option still shows without JS.
+     No option uses a line, rule, dot or card: 2013 and Today are terracotta serif type, nothing more. -->
+
+<div class="gx-opt" id="opt-journey-a">
+<div class="gx-band">
+  <div class="wrap gx-band__in">
+    <div class="gx-band__id">
+      <span class="gx-mono gx-band__letter">Option A</span>
+      <p class="gx-band__label">Margin dates</p>
+      
+    </div>
+    <p class="gx-band__sum">One column of prose set in from the title, with 2013 and Today in the margin as terracotta type and three of your opening sentences set larger, so a skim still gets the story. There is no photo, and it is the plainest of the three.</p>
+  </div>
+</div>
+<!-- A. Margin dates: the title on the page's left edge; from 1200px the dates and the prose start a quarter of the way in
+     (Bronn's split section header), so the column is not left hanging with the right third of the page empty.
+     2013 and Today sit in the margin as type, with no line. Three of Manav's own opening sentences run in, in serif,
+     so a skim still gets the story. On phones the Today mark folds away and its sentence runs in instead. No photo. -->
+<section class="opt-block oc-block" id="journey-a" data-label="Margin dates">
+  <div class="oc-a">
+    <div class="wrap">
+      <header class="oc-a__head reveal">
+        <span class="eyebrow eyebrow--accent">My Story</span>
+        <h2 class="h2">The LoveRaw Journey</h2>
+      </header>
+
+      <div class="oc-a__body">
+        <span class="oc-a__when reveal" aria-hidden="true">2013</span>
+        <p class="reveal"><strong class="oc-a__lede">It started in my kitchen.</strong> No investors. No retail connections. No industry experience. Just a belief that <span class="oc-nb">plant-based</span> chocolate could taste as good as dairy, and a willingness to figure it out as I went. That was 2013. My <span class="oc-nb">co-founder</span> and I started making products by hand and selling them at local markets.</p>
+        <p class="reveal"><span class="oc-a__lede">Within a few years, we had our first retail listing.</span> Then another. Then Tesco came calling. Then Asda. Then Waitrose, Boots, WHSmith, and <span class="oc-nb">Co-Op</span>. Each one felt like an impossible mountain until we climbed it. <strong>We went from a kitchen table to 13,000+ stores.</strong></p>
+        <p class="reveal">The brand grew fast. I led our expansion into <strong>25+ countries</strong>, securing a worldwide agreement with Spar, listings on Amazon, and partnerships with Carrefour across Europe. We built a brand that owned <strong>5 of the top 7 bars in its UK category.</strong></p>
+        <p class="reveal">I led <strong><span class="oc-nb">multi-million-pound</span> fundraising rounds</strong>, built a <span class="oc-nb">3-year</span> NPD pipeline, grew brand awareness from 5% to 18% in a single year, and generated over 36 million media impressions. We developed <span class="oc-nb">clean-label</span>, ethical products that achieved <strong>41% lower emissions than dairy chocolate</strong>. I joined the Tesco Incubator Scheme for scaling innovation brands.</p>
+        <p class="reveal">I did all of this while raising four young children. I know what it takes to build something extraordinary under <span class="oc-nb">real-life</span> pressure.</p>
+        <p class="reveal"><span class="oc-a__lede">But I am not going to pretend it was a perfect journey.</span> I handled product recalls, trademark disputes, and global supply chain crises. I learned brutal lessons about cash flow, about protecting personal wealth from business risk, and about what happens when growth outpaces the infrastructure beneath it.</p>
+        <p class="reveal">Ultimately, the business entered administration.</p>
+        <p class="reveal">That is not something I shy away from. In fact, it is one of the most important things I bring to the table. The brand did not disappear. It was acquired out of administration and proudly lives on today. But I lived through everything that came before that moment. The highs and the lows. The wins and the wreckage. And I know exactly where the landmines are because I stepped on most of them.</p>
+        <span class="oc-a__when oc-a__when--today reveal" aria-hidden="true">Today</span>
+        <p class="reveal"><span class="oc-a__lede-sm">Today, I work with food and FMCG founders as a strategic advisor.</span> I help brands navigate the same journey I lived, from <span class="oc-nb">early-stage</span> to <span class="oc-nb">scale-up</span>, and I help them do it faster, smarter, and with fewer of the mistakes I made along the way.</p>
+      </div>
+
+      <div class="oc-a__end reveal">
+        <p class="oc-a__close"><strong>I am not here to give you textbook advice. I am here because I have done the thing you are trying to do<span class="dot">.</span></strong></p>
+        <a class="btn btn--dark" href="https://calendly.com/manavthapar/30min" target="_blank" rel="noopener">Book Free Call <svg aria-hidden="true"><use href="#arr"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="gx-endmark"><p class="wrap gx-mono">End of The Journey, option A</p></div>
+</div>
+
+<div class="gx-opt" id="opt-journey-b">
+<div class="gx-band" data-recommended="true">
+  <div class="wrap gx-band__in">
+    <div class="gx-band__id">
+      <span class="gx-mono gx-band__letter">Option B</span>
+      <p class="gx-band__label">Editorial long read</p>
+      <span class="gx-chip">Recommended</span>
+    </div>
+    <p class="gx-band__sum">One centred reading column on cream, like a magazine feature: it opens on “It started in my kitchen.” at display size and closes on the same terracotta full stop. There is no photo, so the type carries it alone.</p>
+  </div>
+</div>
+<!-- B. Editorial long read: one centred reading column. "It started in my kitchen." opens at display size with the brand's full stop, and the close answers it with the same stop.
+     No photo: the mascot plate was dropped, because the gallery argues elsewhere that the mascot undercuts how senior the offer reads. -->
+<section class="opt-block oc-block" id="journey-b" data-label="Editorial long read">
+  <div class="oc-b">
+    <article class="oc-b__col">
+      <header class="oc-b__head reveal">
+        <span class="eyebrow eyebrow--accent">My Story</span>
+        <h2 class="h2">The LoveRaw Journey</h2>
+      </header>
+
+      <p class="oc-b__open reveal"><strong class="oc-b__first">It started in my kitchen<span class="dot">.</span></strong> No investors. No retail connections. No industry experience. Just a belief that <span class="oc-nb">plant-based</span> chocolate could taste as good as dairy, and a willingness to figure it out as I went. That was 2013. My <span class="oc-nb">co-founder</span> and I started making products by hand and selling them at local markets.</p>
+
+      <div class="oc-b__prose">
+        <p class="reveal">Within a few years, we had our first retail listing. Then another. Then Tesco came calling. Then Asda. Then Waitrose, Boots, WHSmith, and <span class="oc-nb">Co-Op</span>. Each one felt like an impossible mountain until we climbed it. <strong>We went from a kitchen table to 13,000+ stores.</strong></p>
+        <p class="reveal">The brand grew fast. I led our expansion into <strong>25+ countries</strong>, securing a worldwide agreement with Spar, listings on Amazon, and partnerships with Carrefour across Europe. We built a brand that owned <strong>5 of the top 7 bars in its UK category.</strong></p>
+        <p class="reveal">I led <strong><span class="oc-nb">multi-million-pound</span> fundraising rounds</strong>, built a <span class="oc-nb">3-year</span> NPD pipeline, grew brand awareness from 5% to 18% in a single year, and generated over 36 million media impressions. We developed <span class="oc-nb">clean-label</span>, ethical products that achieved <strong>41% lower emissions than dairy chocolate</strong>. I joined the Tesco Incubator Scheme for scaling innovation brands.</p>
+        <p class="reveal">I did all of this while raising four young children. I know what it takes to build something extraordinary under <span class="oc-nb">real-life</span> pressure.</p>
+        <p class="reveal">But I am not going to pretend it was a perfect journey. I handled product recalls, trademark disputes, and global supply chain crises. I learned brutal lessons about cash flow, about protecting personal wealth from business risk, and about what happens when growth outpaces the infrastructure beneath it.</p>
+        <p class="reveal">Ultimately, the business entered administration.</p>
+        <p class="reveal">That is not something I shy away from. In fact, it is one of the most important things I bring to the table. The brand did not disappear. It was acquired out of administration and proudly lives on today. But I lived through everything that came before that moment. The highs and the lows. The wins and the wreckage. And I know exactly where the landmines are because I stepped on most of them.</p>
+        <p class="reveal">Today, I work with food and FMCG founders as a strategic advisor. I help brands navigate the same journey I lived, from <span class="oc-nb">early-stage</span> to <span class="oc-nb">scale-up</span>, and I help them do it faster, smarter, and with fewer of the mistakes I made along the way.</p>
+      </div>
+
+      <footer class="oc-b__end reveal">
+        <p class="oc-b__payoff"><strong>I am not here to give you textbook advice. I am here because I have done the thing you are trying to do<span class="dot">.</span></strong></p>
+        <a class="btn btn--dark" href="https://calendly.com/manavthapar/30min" target="_blank" rel="noopener">Book Free Call <svg aria-hidden="true"><use href="#arr"/></svg></a>
+      </footer>
+    </article>
+  </div>
+</section>
+<div class="gx-endmark"><p class="wrap gx-mono">End of The Journey, option B</p></div>
+</div>
+
+<div class="gx-opt" id="opt-journey-c">
+<div class="gx-band">
+  <div class="wrap gx-band__in">
+    <div class="gx-band__id">
+      <span class="gx-mono gx-band__letter">Option C</span>
+      <p class="gx-band__label">Pinned title and photograph</p>
+      
+    </div>
+    <p class="gx-band__sum">Your title and Book Free Call button stay pinned on the left above the booth photo while the story scrolls on the right, with 2013 and Today as terracotta type. It uses the same booth photo as How I Help A, so pick one or the other.</p>
+  </div>
+</div>
+<!-- C. Pinned title and photograph: on beige, only the heading and the button stay pinned on the left. The journey runs on the right,
+     with 2013 and Today as terracotta serif type above their paragraphs (no line, no dots).
+     The photograph (story-trade-show) sits at the foot of the left column and scrolls with the page, so it is not a second pinned photo.
+     It is the same photograph as How I Help option A (recommended there): the band says so, pick one or the other.
+     When the columns stack, a second button follows the close. -->
+<section class="opt-block oc-block" id="journey-c" data-label="Pinned title and photograph">
+  <div class="oc-c">
+    <div class="wrap oc-c__row">
+      <div class="oc-c__side">
+        <div class="oc-c__pinwrap">
+          <div class="oc-c__pin reveal">
+            <div class="oc-c__title">
+              <span class="eyebrow eyebrow--accent">My Story</span>
+              <h2 class="h2">The LoveRaw Journey</h2>
+            </div>
+            <a class="btn btn--dark oc-c__cta-pin" href="https://calendly.com/manavthapar/30min" target="_blank" rel="noopener">Book Free Call <svg aria-hidden="true"><use href="#arr"/></svg></a>
+          </div>
+        </div>
+        <figure class="oc-c__photo reveal">
+          <picture>
+            <source srcset="assets/img/story-trade-show.avif" type="image/avif">
+            <source srcset="assets/img/story-trade-show.webp" type="image/webp">
+            <img src="assets/img/story-trade-show.jpg" alt="A LoveRaw stand at a trade show" width="800" height="1200" loading="lazy" decoding="async">
+          </picture>
+        </figure>
+      </div>
+
+      <div class="oc-c__read">
+        <span class="oc-c__stop reveal" aria-hidden="true">2013</span>
+        <div class="oc-c__prose">
+          <p class="reveal"><strong>It started in my kitchen.</strong> No investors. No retail connections. No industry experience. Just a belief that <span class="oc-nb">plant-based</span> chocolate could taste as good as dairy, and a willingness to figure it out as I went. That was 2013. My <span class="oc-nb">co-founder</span> and I started making products by hand and selling them at local markets.</p>
+          <p class="reveal">Within a few years, we had our first retail listing. Then another. Then Tesco came calling. Then Asda. Then Waitrose, Boots, WHSmith, and <span class="oc-nb">Co-Op</span>. Each one felt like an impossible mountain until we climbed it. <strong>We went from a kitchen table to 13,000+ stores.</strong></p>
+          <p class="reveal">The brand grew fast. I led our expansion into <strong>25+ countries</strong>, securing a worldwide agreement with Spar, listings on Amazon, and partnerships with Carrefour across Europe. We built a brand that owned <strong>5 of the top 7 bars in its UK category.</strong></p>
+          <p class="reveal">I led <strong><span class="oc-nb">multi-million-pound</span> fundraising rounds</strong>, built a <span class="oc-nb">3-year</span> NPD pipeline, grew brand awareness from 5% to 18% in a single year, and generated over 36 million media impressions. We developed <span class="oc-nb">clean-label</span>, ethical products that achieved <strong>41% lower emissions than dairy chocolate</strong>. I joined the Tesco Incubator Scheme for scaling innovation brands.</p>
+          <p class="reveal">I did all of this while raising four young children. I know what it takes to build something extraordinary under <span class="oc-nb">real-life</span> pressure.</p>
+          <p class="reveal">But I am not going to pretend it was a perfect journey. I handled product recalls, trademark disputes, and global supply chain crises. I learned brutal lessons about cash flow, about protecting personal wealth from business risk, and about what happens when growth outpaces the infrastructure beneath it.</p>
+          <p class="reveal">Ultimately, the business entered administration.</p>
+          <p class="reveal">That is not something I shy away from. In fact, it is one of the most important things I bring to the table. The brand did not disappear. It was acquired out of administration and proudly lives on today. But I lived through everything that came before that moment. The highs and the lows. The wins and the wreckage. And I know exactly where the landmines are because I stepped on most of them.</p>
+        </div>
+        <span class="oc-c__stop reveal" aria-hidden="true">Today</span>
+        <div class="oc-c__prose">
+          <p class="reveal">Today, I work with food and FMCG founders as a strategic advisor. I help brands navigate the same journey I lived, from <span class="oc-nb">early-stage</span> to <span class="oc-nb">scale-up</span>, and I help them do it faster, smarter, and with fewer of the mistakes I made along the way.</p>
+          <p class="oc-c__close reveal"><strong>I am not here to give you textbook advice. I am here because I have done the thing you are trying to do<span class="dot">.</span></strong></p>
+        </div>
+      </div>
+
+      <a class="btn btn--dark oc-c__cta-end reveal" href="https://calendly.com/manavthapar/30min" target="_blank" rel="noopener">Book Free Call <svg aria-hidden="true"><use href="#arr"/></svg></a>
+    </div>
+  </div>
+</section>
+<div class="gx-endmark"><p class="wrap gx-mono">End of The Journey, option C</p></div>
+</div>
+
+<!-- ================= Group 4: How I Help picture (lane file options/help.html, sections pasted verbatim) ================= -->
+<section class="gx-group" id="help" aria-labelledby="help-gh">
+  <div class="wrap">
+    <span class="gx-mono gx-group__n">04 / 04</span>
+    <h2 class="h2 gx-group__h" id="help-gh">How I Help picture</h2>
+    <p class="lead gx-group__ask">You like the section, but the picture shows little and is not centred. The current booth photo reframed (A) and two swaps (B, C). Only the display shot in your hero exists at high resolution, so both swaps repeat that scene.</p>
+    <p class="gx-mono gx-group__count">3 options</p>
+  </div>
+</section>
+<!-- How I Help: three picture options (lane od-). Copy is verbatim from index.html #how-i-help.
+     Day&nbsp;1 only stops "1." being orphaned on its own line; the words are unchanged.
+     Source order: tiers, then the picture card (desktop pulls the card back with order: -1). -->
+
+<div class="gx-opt" id="opt-help-a">
+<div class="gx-band" data-recommended="true">
+  <div class="wrap gx-band__in">
+    <div class="gx-band__id">
+      <span class="gx-mono gx-band__letter">Option A</span>
+      <p class="gx-band__label">Booth, split card</p>
+      <span class="gx-chip">Recommended</span>
+    </div>
+    <p class="gx-band__sum">The booth photo already on the page, reframed to the card’s shape at every window size so no cut runs through a logo or its lettering, with the headline moved off the photo onto ink. The man at the right edge is still cut by the original frame: he stands in front of the pedestal, so no crop can drop him without cutting its lettering.</p>
+  </div>
+</div>
+<!-- A. Booth, split card. The trade-show photo already on the page, reframed by its box shape (container queries in help.css)
+     so the wall logo and the pedestal always stay whole. The man at the right edge stands in front of the pedestal, so no
+     crop can drop him without cutting the pedestal lettering: he stays, cut by the original frame. -->
+
+<section class="opt-block od-block" id="help-a" data-label="Booth, split card" data-recommended="true">
+  <div class="wrap help__inner">
+    <div class="help__head">
+      <span class="eyebrow eyebrow--accent">How I Help</span>
+      <h2 class="h2">From a single strategy call to ongoing commercial leadership.</h2>
+    </div>
+    <div class="help__row od-row">
+      <div class="od-card od-pin od-a-card">
+        <picture class="od-photo od-booth">
+          <source srcset="assets/img/story-trade-show.avif" type="image/avif">
+          <source srcset="assets/img/story-trade-show.webp" type="image/webp">
+          <img src="assets/img/story-trade-show.jpg" alt="" width="800" height="1200" loading="lazy" decoding="async">
+        </picture>
+        <div class="od-body">
+          <h3>Every engagement is built around clear actions and real outcomes.</h3>
+          <a class="btn btn--light" href="https://calendly.com/manavthapar/30min" target="_blank" rel="noopener">Book Free Call <svg aria-hidden="true"><use href="#arr"/></svg></a>
+        </div>
+      </div>
+      <ul class="tiers">
+        <li class="tier">
+          <span class="tier__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"/></svg></span>
+          <h3>Strategy Session</h3>
+          <p class="tier__desc">A focused 60-minute call where we tackle your biggest challenge. Retail, fundraising, NPD, international, pricing, or productivity. You leave with a clear action plan and specific next steps.</p>
+          <p class="tier__best"><b>Best for:</b> Founders with a specific decision or problem to solve.</p>
+          <a class="link" href="#contact" data-service="Strategy Session">Book Now <svg aria-hidden="true"><use href="#arr"/></svg></a>
+        </li>
+        <li class="tier">
+          <span class="tier__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.7.7 1 1.5 1 2.5h6c0-1 .3-1.8 1-2.5A6 6 0 0 0 12 3z"/></svg></span>
+          <h3>NPD &amp; Innovation Sprint</h3>
+          <p class="tier__desc">A focused engagement to sharpen your product pipeline. Range audit, innovation prioritisation, trend versus viability assessment, retailer-readiness check, and a written recommendations document.</p>
+          <p class="tier__best"><b>Best for:</b> Brands with multiple NPD ideas who need to focus.</p>
+          <a class="link" href="#contact" data-service="NPD &amp; Innovation Sprint">Get Started <svg aria-hidden="true"><use href="#arr"/></svg></a>
+        </li>
+        <li class="tier">
+          <span class="tier__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h16l-1.2 12H5.2zM9 8a3 3 0 0 1 6 0"/></svg></span>
+          <h3>Retail Launch Package</h3>
+          <p class="tier__desc">A 2-week intensive to get you retail-ready. Full commercial audit, retailer target strategy, pitch deck build, two working sessions, and email support throughout.</p>
+          <p class="tier__best"><b>Best for:</b> Brands approaching their first or next major retailer.</p>
+          <a class="link" href="#contact" data-service="Retail Launch Package">Get Retail Ready <svg aria-hidden="true"><use href="#arr"/></svg></a>
+        </li>
+        <li class="tier">
+          <span class="tier__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg></span>
+          <h3>International Strategy</h3>
+          <p class="tier__desc">A 2-week deep dive into your international growth opportunity. Market readiness assessment, target market prioritisation, distributor identification, and international pricing models.</p>
+          <p class="tier__best"><b>Best for:</b> Brands ready to explore international markets.</p>
+          <a class="link" href="#contact" data-service="International Strategy">Go Global <svg aria-hidden="true"><use href="#arr"/></svg></a>
+        </li>
+        <li class="tier">
+          <span class="tier__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4v16h16M8 15l4-4 3 3 5-6"/></svg></span>
+          <h3>Fundraise Ready</h3>
+          <p class="tier__desc">A 2-week sprint to get investor-ready. Investor narrative and deck development, financial model review, investor targeting strategy, and due diligence preparation.</p>
+          <p class="tier__best"><b>Best for:</b> Founders preparing for a seed, Series A, or growth round.</p>
+          <a class="link" href="#contact" data-service="Fundraise Ready">Get Fundraise Ready <svg aria-hidden="true"><use href="#arr"/></svg></a>
+        </li>
+        <li class="tier">
+          <span class="tier__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></span>
+          <h3>Founder Mentorship</h3>
+          <p class="tier__desc">Ongoing 1-to-1 mentorship. Two 45-minute calls per month plus WhatsApp access between sessions. Productivity systems, decision-making frameworks, and honest perspective.</p>
+          <p class="tier__best"><b>Best for:</b> Founders feeling overwhelmed, stuck, or at a crossroads.</p>
+          <a class="link" href="#contact" data-service="Founder Mentorship">Get a Mentor <svg aria-hidden="true"><use href="#arr"/></svg></a>
+        </li>
+        <li class="tier">
+          <span class="tier__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h16v11H4zM9 8V5h6v3M4 13h16"/></svg></span>
+          <h3>Fractional Commercial Director</h3>
+          <p class="tier__desc">I embed in your business 1 to 2 days per week and take ownership of your commercial strategy. This is what a &pound;100K hire would do, at a fraction of the cost with 12 years of experience from Day&nbsp;1.</p>
+          <p class="tier__best"><b>Best for:</b> Brands doing &pound;500K to &pound;5M who need senior leadership.</p>
+          <a class="link" href="#contact" data-service="Fractional Commercial Director">Let&rsquo;s Talk <svg aria-hidden="true"><use href="#arr"/></svg></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+<div class="gx-endmark"><p class="wrap gx-mono">End of How I Help picture, option A</p></div>
+</div>
+
+<div class="gx-opt" id="opt-help-b">
+<div class="gx-band">
+  <div class="wrap gx-band__in">
+    <div class="gx-band__id">
+      <span class="gx-mono gx-band__letter">Option B</span>
+      <p class="gx-band__label">Retail display, wide banner</p>
+      
+    </div>
+    <p class="gx-band__sum">A new crop of the retail display becomes a wide banner above the tiers, which run three across. It shows the same yellow banner as your hero, so it repeats your opening photo.</p>
+  </div>
+</div>
+<!-- B. Retail display, wide banner. A 1:1 crop of the 4032px display shot (the only high-resolution photo), so it repeats
+     the hero scene and its yellow banner. The card goes landscape above the tiers, which run three across. -->
+<section class="opt-block od-block" id="help-b" data-label="Retail display, wide banner">
+  <div class="wrap help__inner">
+    <div class="help__head">
+      <span class="eyebrow eyebrow--accent">How I Help</span>
+      <h2 class="h2">From a single strategy call to ongoing commercial leadership.</h2>
+    </div>
+    <div class="od-wide-stack">
+      <ul class="tiers od-wide-tiers">
+        <li class="tier">
+          <span class="tier__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"/></svg></span>
+          <h3>Strategy Session</h3>
+          <p class="tier__desc">A focused 60-minute call where we tackle your biggest challenge. Retail, fundraising, NPD, international, pricing, or productivity. You leave with a clear action plan and specific next steps.</p>
+          <p class="tier__best"><b>Best for:</b> Founders with a specific decision or problem to solve.</p>
+          <a class="link" href="#contact" data-service="Strategy Session">Book Now <svg aria-hidden="true"><use href="#arr"/></svg></a>
+        </li>
+        <li class="tier">
+          <span class="tier__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.7.7 1 1.5 1 2.5h6c0-1 .3-1.8 1-2.5A6 6 0 0 0 12 3z"/></svg></span>
+          <h3>NPD &amp; Innovation Sprint</h3>
+          <p class="tier__desc">A focused engagement to sharpen your product pipeline. Range audit, innovation prioritisation, trend versus viability assessment, retailer-readiness check, and a written recommendations document.</p>
+          <p class="tier__best"><b>Best for:</b> Brands with multiple NPD ideas who need to focus.</p>
+          <a class="link" href="#contact" data-service="NPD &amp; Innovation Sprint">Get Started <svg aria-hidden="true"><use href="#arr"/></svg></a>
+        </li>
+        <li class="tier">
+          <span class="tier__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h16l-1.2 12H5.2zM9 8a3 3 0 0 1 6 0"/></svg></span>
+          <h3>Retail Launch Package</h3>
+          <p class="tier__desc">A 2-week intensive to get you retail-ready. Full commercial audit, retailer target strategy, pitch deck build, two working sessions, and email support throughout.</p>
+          <p class="tier__best"><b>Best for:</b> Brands approaching their first or next major retailer.</p>
+          <a class="link" href="#contact" data-service="Retail Launch Package">Get Retail Ready <svg aria-hidden="true"><use href="#arr"/></svg></a>
+        </li>
+        <li class="tier">
+          <span class="tier__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg></span>
+          <h3>International Strategy</h3>
+          <p class="tier__desc">A 2-week deep dive into your international growth opportunity. Market readiness assessment, target market prioritisation, distributor identification, and international pricing models.</p>
+          <p class="tier__best"><b>Best for:</b> Brands ready to explore international markets.</p>
+          <a class="link" href="#contact" data-service="International Strategy">Go Global <svg aria-hidden="true"><use href="#arr"/></svg></a>
+        </li>
+        <li class="tier">
+          <span class="tier__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4v16h16M8 15l4-4 3 3 5-6"/></svg></span>
+          <h3>Fundraise Ready</h3>
+          <p class="tier__desc">A 2-week sprint to get investor-ready. Investor narrative and deck development, financial model review, investor targeting strategy, and due diligence preparation.</p>
+          <p class="tier__best"><b>Best for:</b> Founders preparing for a seed, Series A, or growth round.</p>
+          <a class="link" href="#contact" data-service="Fundraise Ready">Get Fundraise Ready <svg aria-hidden="true"><use href="#arr"/></svg></a>
+        </li>
+        <li class="tier">
+          <span class="tier__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></span>
+          <h3>Founder Mentorship</h3>
+          <p class="tier__desc">Ongoing 1-to-1 mentorship. Two 45-minute calls per month plus WhatsApp access between sessions. Productivity systems, decision-making frameworks, and honest perspective.</p>
+          <p class="tier__best"><b>Best for:</b> Founders feeling overwhelmed, stuck, or at a crossroads.</p>
+          <a class="link" href="#contact" data-service="Founder Mentorship">Get a Mentor <svg aria-hidden="true"><use href="#arr"/></svg></a>
+        </li>
+        <li class="tier">
+          <span class="tier__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h16v11H4zM9 8V5h6v3M4 13h16"/></svg></span>
+          <h3>Fractional Commercial Director</h3>
+          <p class="tier__desc">I embed in your business 1 to 2 days per week and take ownership of your commercial strategy. This is what a &pound;100K hire would do, at a fraction of the cost with 12 years of experience from Day&nbsp;1.</p>
+          <p class="tier__best"><b>Best for:</b> Brands doing &pound;500K to &pound;5M who need senior leadership.</p>
+          <a class="link" href="#contact" data-service="Fractional Commercial Director">Let&rsquo;s Talk <svg aria-hidden="true"><use href="#arr"/></svg></a>
+        </li>
+      </ul>
+      <div class="od-wide-card">
+        <div class="od-wide-body">
+          <h3>Every engagement is built around clear actions and real outcomes.</h3>
+          <a class="btn btn--light" href="https://calendly.com/manavthapar/30min" target="_blank" rel="noopener">Book Free Call <svg aria-hidden="true"><use href="#arr"/></svg></a>
+        </div>
+        <picture class="od-wide-photo">
+          <source srcset="assets/img/opt-od-display.avif" type="image/avif">
+          <source srcset="assets/img/opt-od-display.webp" type="image/webp">
+          <img src="assets/img/opt-od-display.jpg" alt="" width="1165" height="1120" loading="lazy" decoding="async">
+        </picture>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="gx-endmark"><p class="wrap gx-mono">End of How I Help picture, option B</p></div>
+</div>
+
+<div class="gx-opt" id="opt-help-c">
+<div class="gx-band">
+  <div class="wrap gx-band__in">
+    <div class="gx-band__id">
+      <span class="gx-mono gx-band__letter">Option C</span>
+      <p class="gx-band__label">Counter and range, bento tile</p>
+      
+    </div>
+    <p class="gx-band__sum">A new crop of the display counter and range, below the yellow banner, becomes a tall tile in a three-column grid with the tiers. It comes from the same display shot as your hero, the only high-resolution photo, so it still repeats that scene.</p>
+  </div>
+</div>
+<!-- C. Counter and range, bento tile. A new crop of the same display shot, below the yellow banner: the counter and the range.
+     1200 x 1409 from a 1540px-wide cut. Three columns; the tile is one column wide and two rows tall. -->
+<section class="opt-block od-block" id="help-c" data-label="Counter and range, bento tile">
+  <div class="wrap help__inner">
+    <div class="help__head">
+      <span class="eyebrow eyebrow--accent">How I Help</span>
+      <h2 class="h2">From a single strategy call to ongoing commercial leadership.</h2>
+    </div>
+    <div class="od-bento-grid">
+      <ul class="tiers od-bento-tiers" role="list">
+        <li class="tier">
+          <span class="tier__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"/></svg></span>
+          <h3>Strategy Session</h3>
+          <p class="tier__desc">A focused 60-minute call where we tackle your biggest challenge. Retail, fundraising, NPD, international, pricing, or productivity. You leave with a clear action plan and specific next steps.</p>
+          <p class="tier__best"><b>Best for:</b> Founders with a specific decision or problem to solve.</p>
+          <a class="link" href="#contact" data-service="Strategy Session">Book Now <svg aria-hidden="true"><use href="#arr"/></svg></a>
+        </li>
+        <li class="tier">
+          <span class="tier__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.7.7 1 1.5 1 2.5h6c0-1 .3-1.8 1-2.5A6 6 0 0 0 12 3z"/></svg></span>
+          <h3>NPD &amp; Innovation Sprint</h3>
+          <p class="tier__desc">A focused engagement to sharpen your product pipeline. Range audit, innovation prioritisation, trend versus viability assessment, retailer-readiness check, and a written recommendations document.</p>
+          <p class="tier__best"><b>Best for:</b> Brands with multiple NPD ideas who need to focus.</p>
+          <a class="link" href="#contact" data-service="NPD &amp; Innovation Sprint">Get Started <svg aria-hidden="true"><use href="#arr"/></svg></a>
+        </li>
+        <li class="tier">
+          <span class="tier__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h16l-1.2 12H5.2zM9 8a3 3 0 0 1 6 0"/></svg></span>
+          <h3>Retail Launch Package</h3>
+          <p class="tier__desc">A 2-week intensive to get you retail-ready. Full commercial audit, retailer target strategy, pitch deck build, two working sessions, and email support throughout.</p>
+          <p class="tier__best"><b>Best for:</b> Brands approaching their first or next major retailer.</p>
+          <a class="link" href="#contact" data-service="Retail Launch Package">Get Retail Ready <svg aria-hidden="true"><use href="#arr"/></svg></a>
+        </li>
+        <li class="tier">
+          <span class="tier__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg></span>
+          <h3>International Strategy</h3>
+          <p class="tier__desc">A 2-week deep dive into your international growth opportunity. Market readiness assessment, target market prioritisation, distributor identification, and international pricing models.</p>
+          <p class="tier__best"><b>Best for:</b> Brands ready to explore international markets.</p>
+          <a class="link" href="#contact" data-service="International Strategy">Go Global <svg aria-hidden="true"><use href="#arr"/></svg></a>
+        </li>
+        <li class="tier">
+          <span class="tier__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4v16h16M8 15l4-4 3 3 5-6"/></svg></span>
+          <h3>Fundraise Ready</h3>
+          <p class="tier__desc">A 2-week sprint to get investor-ready. Investor narrative and deck development, financial model review, investor targeting strategy, and due diligence preparation.</p>
+          <p class="tier__best"><b>Best for:</b> Founders preparing for a seed, Series A, or growth round.</p>
+          <a class="link" href="#contact" data-service="Fundraise Ready">Get Fundraise Ready <svg aria-hidden="true"><use href="#arr"/></svg></a>
+        </li>
+        <li class="tier">
+          <span class="tier__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></span>
+          <h3>Founder Mentorship</h3>
+          <p class="tier__desc">Ongoing 1-to-1 mentorship. Two 45-minute calls per month plus WhatsApp access between sessions. Productivity systems, decision-making frameworks, and honest perspective.</p>
+          <p class="tier__best"><b>Best for:</b> Founders feeling overwhelmed, stuck, or at a crossroads.</p>
+          <a class="link" href="#contact" data-service="Founder Mentorship">Get a Mentor <svg aria-hidden="true"><use href="#arr"/></svg></a>
+        </li>
+        <li class="tier">
+          <span class="tier__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h16v11H4zM9 8V5h6v3M4 13h16"/></svg></span>
+          <h3>Fractional Commercial Director</h3>
+          <p class="tier__desc">I embed in your business 1 to 2 days per week and take ownership of your commercial strategy. This is what a &pound;100K hire would do, at a fraction of the cost with 12 years of experience from Day&nbsp;1.</p>
+          <p class="tier__best"><b>Best for:</b> Brands doing &pound;500K to &pound;5M who need senior leadership.</p>
+          <a class="link" href="#contact" data-service="Fractional Commercial Director">Let&rsquo;s Talk <svg aria-hidden="true"><use href="#arr"/></svg></a>
+        </li>
+      </ul>
+      <div class="od-card od-bento-cta">
+        <picture class="od-photo">
+          <source srcset="assets/img/opt-od-counter.avif" type="image/avif">
+          <source srcset="assets/img/opt-od-counter.webp" type="image/webp">
+          <img src="assets/img/opt-od-counter.jpg" alt="" width="1200" height="1409" loading="lazy" decoding="async">
+        </picture>
+        <div class="od-body">
+          <h3>Every engagement is built around clear actions and real outcomes.</h3>
+          <a class="btn btn--light" href="https://calendly.com/manavthapar/30min" target="_blank" rel="noopener">Book Free Call <svg aria-hidden="true"><use href="#arr"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="gx-endmark"><p class="wrap gx-mono">End of How I Help picture, option C</p></div>
+</div>
+
+<footer class="gx-end" id="contact">
+  <div class="wrap">
+    <p>End of alternatives.</p>
+    <p>The Book Now style links inside the options land here. The contact form is on the current page.</p>
+    <a class="link" href="index.html#contact">Back to the current page <svg aria-hidden="true"><use href="#arr"/></svg></a>
+  </div>
+</footer>
+
+</main>
+</body>
+</html>

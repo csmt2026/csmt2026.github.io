@@ -1,0 +1,160 @@
+/* ============================================================
+   The LoveRaw Journey: three alternatives (lane prefix oc-)
+   Sits on top of css/bronn.css and uses its tokens only.
+   Shared from bronn.css, unprefixed: .wrap .eyebrow .h2 .btn .dot .reveal
+   No background lines and no cards: each option reads as one piece.
+   Emphasis is bronn.css's own <strong> (ink, same face, same size).
+   ============================================================ */
+
+.oc-block { --oc-read: 1.0625rem; --oc-lh: 1.65; }
+/* pretty wrapping only where the measure is wide: on phones it re-breaks short paragraphs narrower than their neighbours */
+@media (min-width: 810px) { .oc-block p { text-wrap: pretty; } }
+/* keeps a hyphenated word on one line; the text itself is unchanged */
+.oc-nb { white-space: nowrap; }
+
+/* ============================================================
+   A. Margin dates
+   White ground. The title sits on the page's left edge like every
+   other section; from 1200px the dates and the prose start about a
+   quarter of the way in (Bronn's split section header), so the page
+   is balanced rather than hanging from the left with the right third
+   empty. 2013 and Today hang in a 160px margin as type (no line).
+   Three opening sentences run in, in serif, inside their paragraph.
+   ============================================================ */
+.oc-a { --oc-gut: 160px; background: var(--white); padding: var(--section-y) var(--pad-x); }
+.oc-a__head { display: flex; flex-direction: column; gap: 18px; margin-bottom: 64px; }
+
+.oc-a__body {
+  display: grid; grid-template-columns: [gut] var(--oc-gut) [text] minmax(0, 680px);
+  row-gap: 20px; align-items: baseline;
+}
+.oc-a__body > p { grid-column: text; font-size: var(--oc-read); line-height: var(--oc-lh); color: var(--body); }
+.oc-a__when {
+  grid-column: gut; font-family: var(--serif); font-size: var(--fs-h4); line-height: 1;
+  letter-spacing: -.02em; color: var(--accent-text);
+}
+/* run-in: the sentence stays inside its paragraph, set in the serif a step up */
+.oc-a__lede {
+  font-family: var(--serif); font-size: 1.2em; line-height: 1.3; letter-spacing: -.015em; color: var(--ink);
+}
+/* "Today, I work..." is plain beside its margin mark; it only runs in on phones, where the mark folds away */
+.oc-a__lede-sm { font: inherit; }
+
+.oc-a__end { margin: 72px 0 0 var(--oc-gut); max-width: 760px; display: flex; flex-direction: column; align-items: flex-start; gap: 32px; }
+.oc-a__close {
+  font-family: var(--serif); font-size: clamp(1.625rem, 1.2rem + 1.3vw, 2.25rem);
+  line-height: 1.25; letter-spacing: -.02em; color: var(--ink); text-wrap: balance;
+}
+
+@media (min-width: 1200px) {
+  .oc-a { --oc-shift: min(360px, 28%); }
+  .oc-a__body { margin-left: var(--oc-shift); }
+  .oc-a__end { margin-left: calc(var(--oc-shift) + var(--oc-gut)); }
+}
+@media (max-width: 1199.98px) {
+  .oc-a { --oc-gut: 128px; }
+}
+@media (max-width: 809.98px) {
+  .oc-a__head { margin-bottom: 40px; }
+  .oc-a__body { grid-template-columns: [text] minmax(0, 1fr); row-gap: 18px; max-width: 680px; }
+  .oc-a__when { grid-column: text; font-size: var(--fs-h5); margin-bottom: -6px; }
+  .oc-a__when--today { display: none; }
+  .oc-a__lede-sm { font-family: var(--serif); font-size: 1.2em; line-height: 1.3; letter-spacing: -.015em; color: var(--ink); }
+  .oc-a__end { margin: 48px 0 0; gap: 28px; }
+}
+
+/* ============================================================
+   B. Editorial long read
+   Cream ground, one 680px column. The first sentence opens at
+   display size with the brand's full stop; the rest of paragraph 1
+   is a serif standfirst. No photograph: the type carries it. The
+   close answers the opener.
+   ============================================================ */
+.oc-b { background: var(--cream); padding: var(--section-y) var(--pad-x); }
+.oc-b__col { max-width: 680px; margin-inline: auto; }
+.oc-b__head { display: flex; flex-direction: column; gap: 18px; margin-bottom: 80px; }
+
+.oc-b__open {
+  font-family: var(--serif); font-size: clamp(1.1875rem, 1.05rem + .45vw, 1.375rem);
+  line-height: 1.5; letter-spacing: -.01em; color: var(--body);
+}
+.oc-b__open .oc-b__first {
+  display: block; margin-bottom: 28px;
+  font-size: clamp(2.25rem, 1.3rem + 2.7vw, 3.5rem); line-height: 1.08; letter-spacing: -.035em;
+  color: var(--ink); text-wrap: balance;
+}
+
+.oc-b__prose { display: grid; gap: 1.15em; }
+.oc-b__open + .oc-b__prose { margin-top: 40px; }
+.oc-b__prose p { font-size: 1.125rem; line-height: 1.7; color: var(--body); }
+
+.oc-b__end { margin-top: 80px; display: flex; flex-direction: column; align-items: flex-start; gap: 32px; }
+.oc-b__payoff {
+  font-family: var(--serif); font-size: clamp(1.75rem, 1.3rem + 1.5vw, 2.5rem);
+  line-height: 1.2; letter-spacing: -.03em; color: var(--ink); text-wrap: balance;
+}
+
+/* below 900px centring would set the column 28 to 77px in from the gutter the sections above and below start on,
+   which reads as a near miss rather than an indent: sit it on the gutter instead */
+@media (max-width: 899.98px) { .oc-b__col { margin-inline: 0; } }
+@media (max-width: 809.98px) {
+  .oc-b__head { margin-bottom: 48px; }
+  .oc-b__open .oc-b__first { margin-bottom: 20px; }
+  .oc-b__open + .oc-b__prose { margin-top: 32px; }
+  .oc-b__prose p { font-size: var(--oc-read); line-height: var(--oc-lh); }
+  .oc-b__end { margin-top: 56px; gap: 28px; }
+}
+
+/* ============================================================
+   C. Pinned title and photograph
+   Beige ground. Only the heading and the button are pinned. The
+   photograph sits at the foot of the left column and scrolls, so the
+   page does not get a second pinned photo after About. The journey
+   runs on the right as plain prose. 2013 and Today are terracotta
+   serif type above their paragraphs: no line, no dots.
+   ============================================================ */
+.oc-c { background: var(--beige); padding: var(--section-y) var(--pad-x); }
+.oc-c__row { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 80px; align-items: stretch; }
+.oc-c__side { display: flex; flex-direction: column; gap: 56px; min-width: 0; }
+.oc-c__pinwrap { flex: 1 1 auto; }
+.oc-c__pin { position: sticky; top: 112px; display: flex; flex-direction: column; align-items: flex-start; gap: 32px; }
+.oc-c__title { display: flex; flex-direction: column; gap: 18px; }
+.oc-c__photo { width: 100%; max-width: 440px; }
+.oc-c__photo img {
+  width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 65% 45%;
+  border-radius: var(--radius); background: var(--chip);
+}
+.oc-c__cta-end { display: none; }
+
+.oc-c__read { max-width: 680px; padding-top: 4px; }
+.oc-c__stop {
+  display: block; margin-bottom: 20px;
+  font-family: var(--serif); font-size: var(--fs-h4); line-height: 1.2; letter-spacing: -.02em; color: var(--accent-text);
+}
+.oc-c__prose + .oc-c__stop { margin-top: 64px; }
+
+.oc-c__prose { display: grid; gap: 1.1em; }
+.oc-c__prose p { font-size: var(--oc-read); line-height: var(--oc-lh); color: var(--body); }
+.oc-c__prose .oc-c__close {
+  margin-top: 28px; font-family: var(--serif); font-size: clamp(1.625rem, 1.2rem + 1.3vw, 2.25rem);
+  line-height: 1.25; letter-spacing: -.02em; color: var(--ink); text-wrap: balance;
+}
+
+/* stacked: title, photo, the read, then the button after the close */
+@media (max-width: 1199.98px) {
+  .oc-c__row { grid-template-columns: minmax(0, 1fr); gap: 48px; }
+  .oc-c__side { gap: 40px; }
+  .oc-c__pin { position: static; }
+  .oc-c__cta-pin { display: none; }
+  .oc-c__photo { max-width: 560px; }
+  .oc-c__photo img { aspect-ratio: 3 / 2; object-position: 65% 40%; }
+  .oc-c__read { max-width: 680px; }
+  .oc-c__cta-end { display: inline-flex; justify-self: start; margin-top: -8px; }
+}
+@media (max-width: 809.98px) {
+  .oc-c__row { gap: 40px; }
+  .oc-c__side { gap: 32px; }
+  .oc-c__photo img { aspect-ratio: 4 / 3; object-position: 65% 38%; }
+  .oc-c__stop { font-size: var(--fs-h5); margin-bottom: 16px; }
+  .oc-c__prose + .oc-c__stop { margin-top: 48px; }
+}

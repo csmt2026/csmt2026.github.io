@@ -1,0 +1,172 @@
+/* ============================================================
+   How I Help: three picture options. Lane prefix od-.
+   Everything else (help__inner, help__head, help__row, tiers, tier,
+   btn) is the live bronn.css, untouched, so each option sits in the
+   page exactly as the current section does.
+
+   Source order is the order phones and tablets show, so the keyboard
+   meets things in the order the eye does. A: the picture card first,
+   then the tiers, so on the live page the section closes on the cream
+   tiers and not on a second dark card beside the contact panel.
+   B and C: the tiers first, the card second; on desktop B's banner is
+   pulled to the top with order: -1.
+
+   A uses the trade-show photo already on the page (800 x 1200),
+   reframed by its box shape: the box runs from 4:5 below 1200px to
+   wider than square on a short laptop window, and each shape opens on
+   a whole band (wall logo, wall line, pedestal). The man at the right
+   edge stands in front of the pedestal, so no crop can drop him
+   without cutting its lettering. B and C are crops of the 4032px
+   display shot, the only high-resolution photo, so both repeat the
+   hero's scene.
+   ============================================================ */
+
+.od-block { padding: 96px var(--pad-x); }
+@media (max-width: 809.98px) { .od-block { padding: 64px var(--pad-x); } }
+
+/* ---------- The split card (A and C) ----------
+   Photo on top, uncovered. Line and button beneath, in solid ink. */
+.od-card {
+  min-width: 0; border-radius: var(--radius); overflow: hidden; background: var(--ink);
+  display: flex; flex-direction: column;
+}
+.od-photo { display: block; min-height: 0; }
+.od-photo img { width: 100%; height: 100%; object-fit: cover; }
+.od-body { flex: none; padding: 28px 24px 32px; display: flex; flex-direction: column; gap: 28px; }
+.od-body h3, .od-wide-body h3 {
+  font-family: var(--serif); font-weight: 400; font-size: clamp(1.75rem, 1.5rem + .8vw, 2.4375rem);
+  line-height: 1.2; letter-spacing: -.04em; color: var(--white); text-wrap: balance;
+}
+.od-body .btn, .od-wide-body .btn { align-self: flex-start; }
+
+/* ---------- A on desktop: the card held in view ----------
+   The live card is 413 x 1406, an aspect of 0.29, so any photo
+   becomes a thin strip. Here it keeps the live column width (flex
+   basis 48px stands in for the live card's side padding) but is only
+   as tall as the window, and stays in view while the tiers scroll.
+   It pins on any window 560px tall or more; below that it docks
+   above the tiers, as on a tablet, so no column is ever left empty. */
+@media (min-width: 1200px) and (min-height: 560px) {
+  .od-pin {
+    order: -1; flex: .3 0 48px; align-self: flex-start;
+    position: sticky; top: 96px; height: min(calc(100vh - 120px), 820px);
+  }
+  .od-pin .od-photo { flex: 1 1 0; }
+  .od-a-card .od-photo { container: od-booth / size; }
+  .od-a-card .od-photo img { object-position: 50% 15%; }
+}
+@media (min-width: 1200px) and (min-height: 560px) and (max-height: 759.98px) {
+  /* short laptop windows: the line drops to the h3 clamp's own floor so the photo keeps its share */
+  .od-pin .od-body { padding: 24px 24px 28px; gap: 20px; }
+  .od-pin .od-body h3 { font-size: 1.75rem; }
+}
+/* A's photo box changes shape with window height, so it frames itself
+   by its own shape. Offsets are source rows of the 800px-wide frame
+   (row / 8 = cqw). Tall: banners, wall and pedestal whole. Squarer:
+   opens just under the hanging banners' lettering, on the wall logo.
+   Wide: opens on the wall line. Widest: the pedestal and its
+   lettering alone. Never a cut through a logo or a line of lettering. */
+@container od-booth (aspect-ratio > 0.95) { .od-a-card .od-photo img { object-position: 50% -34cqw; } }
+@container od-booth (aspect-ratio > 1.35) { .od-a-card .od-photo img { object-position: 50% -50.625cqw; } }
+@container od-booth (aspect-ratio > 1.75) { .od-a-card .od-photo img { object-position: 50% -62.5cqw; } }
+
+/* ---------- B. Retail display, wide banner ----------
+   The one landscape original, so the card goes landscape too: a
+   full-width split banner, ink left, photo right, above the tiers in
+   three columns. The last tier spans the row and lays its title,
+   description and 'Best for' across the same three columns, so the
+   row ends full rather than in a void. */
+.od-wide-stack { display: flex; flex-direction: column; gap: 16px; }
+.od-wide-card {
+  display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  border-radius: var(--radius); overflow: hidden; background: var(--ink); min-height: 400px;
+}
+.od-wide-body { padding: 40px 40px 40px 32px; display: flex; flex-direction: column; justify-content: space-between; gap: 32px; }
+.od-wide-photo { display: block; position: relative; min-height: 100%; }
+.od-wide-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%; }
+.od-wide-tiers { flex: none; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (min-width: 1200px) { .od-wide-card { order: -1; } }
+/* The last tier's inner columns sit on the same lines as the tier
+   columns above: 64px = the 16px gap plus 24px padding either side. */
+@media (min-width: 810px) {
+  .od-wide-tiers .tier:last-child { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 64px; row-gap: 14px; align-content: start; }
+  .od-wide-tiers .tier:last-child > .tier__icon { grid-column: 1; grid-row: 1; }
+  .od-wide-tiers .tier:last-child > h3 { grid-column: 1; grid-row: 2; }
+  .od-wide-tiers .tier:last-child > .tier__desc { grid-column: 2; grid-row: 2; }
+  .od-wide-tiers .tier:last-child > .tier__best { grid-column: 2; grid-row: 3; }
+  .od-wide-tiers .tier:last-child > .link { grid-column: 2; grid-row: 4; margin-top: 0; }
+}
+@media (min-width: 1200px) {
+  .od-wide-tiers .tier:last-child { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .od-wide-tiers .tier:last-child > .tier__desc { grid-row: 2 / span 2; }
+  .od-wide-tiers .tier:last-child > .tier__best { grid-column: 3; grid-row: 2; }
+  .od-wide-tiers .tier:last-child > .link { grid-column: 3; grid-row: 3; }
+}
+@media (max-width: 1199.98px) {
+  .od-wide-card { grid-template-columns: minmax(0, 1fr); min-height: 0; }
+  .od-wide-photo { order: -1; aspect-ratio: 3 / 2; min-height: 0; }
+  .od-wide-photo img { object-position: 50% 70%; } /* opens just below the banner's own logo */
+  .od-wide-body { padding: 32px; }
+  .od-wide-tiers { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 809.98px) {
+  .od-wide-tiers { grid-template-columns: minmax(0, 1fr); }
+  .od-wide-tiers .tier:last-child { grid-column: auto; }
+}
+@media (max-width: 559.98px) {
+  .od-wide-photo { aspect-ratio: 4 / 3; }
+  .od-wide-photo img { object-position: 50% 100%; }
+  .od-wide-body { padding: 24px 20px 28px; }
+}
+
+/* ---------- C. Counter and range, bento tile ----------
+   Three columns. The tile is one column wide and two rows tall, top
+   left; the seven tiers fill the other seven cells, so each tier
+   keeps about 400px. The list takes display: contents so its items
+   join the same grid while it stays a seven-item list. The photo is
+   the counter and range (1200 x 1409, an aspect of 0.85): the crop
+   keeps the range at the top and the counter lettering whole. */
+.od-bento-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.od-bento-tiers { display: contents; }
+.od-bento-grid .tier:last-child { grid-column: auto; }
+.od-bento-cta { grid-column: 1; grid-row: 1 / span 2; }
+.od-bento-cta .od-photo { flex: 1 1 0; }
+.od-bento-cta .od-photo img { object-position: 50% 20%; }
+@media (max-width: 1199.98px) {
+  .od-bento-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .od-bento-cta { grid-column: 1 / -1; grid-row: auto; }
+  .od-bento-cta .od-photo { flex: 0 0 50%; }
+  .od-bento-cta .od-photo img { object-position: 50% 30%; }
+  .od-bento-grid .tier:last-child { grid-column: 1 / -1; }
+}
+@media (max-width: 809.98px) {
+  .od-bento-grid { grid-template-columns: minmax(0, 1fr); }
+  .od-bento-grid .tier:last-child { grid-column: auto; }
+}
+
+/* ---------- Docked: the card in the tiers' column ----------
+   Tablets and phones for every split card (A above the tiers, C
+   after them); and short desktop windows (under 560px tall) for A.
+   Photo left, line and button right; below 560px wide, photo on top.
+   Last in the file so it wins. */
+.od-booth img { object-position: 50% 30%; } /* 4:5 box: rows 60 to 1060, everything whole */
+@media (max-width: 1199.98px) {
+  .od-card { flex-direction: row; }
+  .od-card .od-photo { flex: 0 0 50%; }
+  .od-card .od-photo img { height: 100%; aspect-ratio: 4 / 5; }
+  .od-card .od-body { flex: 1 1 0; justify-content: flex-end; padding: 32px; }
+  .od-bento-cta .od-photo img { aspect-ratio: 1200 / 1409; } /* the whole counter crop, so its lettering is never cut */
+}
+@media (min-width: 1200px) and (max-height: 559.98px) {
+  .od-row { flex-direction: column; }
+  .od-pin { flex-direction: row; }
+  .od-pin .od-photo { flex: 0 0 50%; }
+  .od-pin .od-photo img { height: 100%; aspect-ratio: 3 / 2; object-position: 50% 61%; } /* rows 410 to 943: wall line and pedestal */
+  .od-pin .od-body { flex: 1 1 0; justify-content: flex-end; padding: 32px; }
+}
+@media (max-width: 559.98px) {
+  .od-card { flex-direction: column; }
+  .od-card .od-photo { flex: none; }
+  .od-card .od-photo img { height: auto; }
+  .od-card .od-body { padding: 24px 20px 28px; }
+}

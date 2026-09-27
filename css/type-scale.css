@@ -1,0 +1,27 @@
+/* Seven-step type scale (Manav, 27/09/2026). Loads last. Remove this file's <link> to return
+   to the previous sizes; the full previous version is also kept at /original. */
+:root {
+  --t1: clamp(2.5rem, 1.5rem + 2.9vw, 4rem);          /* 40 to 64  hero */
+  --t2: clamp(1.75rem, 1.2rem + 1.9vw, 2.75rem);      /* 28 to 44  section headings */
+  --t3: clamp(1.5rem, 1.2rem + 1.1vw, 2rem);          /* 24 to 32  panel titles */
+  --t4: clamp(1.1875rem, 1.1rem + .3vw, 1.375rem);    /* 19 to 22  story opening, tagline */
+  --t5: clamp(1.0625rem, 1rem + .2vw, 1.125rem);      /* 17 to 18  intro lines */
+  --t6: 1rem;                                          /* 16        body, buttons, fields */
+  --t7: .75rem;                                        /* 12        labels, captions, small print */
+}
+body .hero h1 { font-size: var(--t1); }
+body .h2, body .oc-b__first, body .oc-b__payoff, body .oc-b__payoff strong { font-size: var(--t2); }
+body .od-body h3, body .ob-wheel__title, body .mobmenu a:not(.btn) { font-size: var(--t3); }
+body .footer__tagline, body .oc-b__open { font-size: var(--t4); }
+body .lead, body .ob-wheel__text p, body .ticker__item, body .step h3, body .tier h3,
+body .panel__copy p, body .hero__right p { font-size: var(--t5); }
+body .oc-b__prose p, body .field input, body .field select, body .field textarea, body option,
+body .nav__links a, body .tag, body .tier__best, body .field label, body .btn, body .link { font-size: var(--t6); }
+body figcaption, body .footer__bottom, body .form__note, body .eyebrow { font-size: var(--t7); }
+/* Section-scoped rules that out-rank the lanes' own selectors */
+#story .oc-b__open .oc-b__first { font-size: var(--t2); }
+#what-i-do .ob-wheel__text .ob-wheel__title { font-size: var(--t3); }
+#what-i-do .ob-wheel__text p { font-size: var(--t5); }
+#about .oa-a__num { font-size: var(--t2); }
+#about .oa-a__lab, #about .oa-a__label { font-size: var(--t7); }
+#about .oa-a__photo figcaption { font-size: var(--t7); }
