@@ -1,6 +1,4 @@
 User-agent: *
-Disallow: /options
-Disallow: /classic
-Disallow: /original
+Allow: /
 
 Sitemap: https://unseen-advisory.com/sitemap.xml
